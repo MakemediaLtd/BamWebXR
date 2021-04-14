@@ -38,29 +38,29 @@
          ></a-mixin>
       </a-assets>
 
-      <a-entity
-        id="background"
-        position="0 0 0"
-        geometry="primitive: sphere; radius: 2.0"
-        material="color: red; side: back; shader: flat"
-        scale="0.001 0.001 0.001"
-        visible="false" class="raycastable">
-      </a-entity>
-
-      <a-entity
+    
+	 <a-entity
         position="0 1.6 0"
-        camera look-controls="magicWindowTrackingEnabled: false; touchEnabled: false; mouseEnabled: false">
+		id = "cam"
+        camera look-controls="magicWindowTrackingEnabled: false; touchEnabled: false; mouseEnabled: true">
         <a-entity
           id="fadeBackground"
           geometry="primitive: sphere; radius: 2.5"
           material="color: black; side: back; shader: flat; transparent: true; opacity: 0.6" visible="false">
         </a-entity>
       </a-entity>
+	  
+	  
+	   
+	
 
       <!-- Hand controls -->
       <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: .raycastable"></a-entity>
       <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: .raycastable" line="color: #118A7E"></a-entity>
 
+
+
+ <a-entity id = "wrapScene">
 
       <a-entity id="ui" position="0 1.6 -2.5">
         <!-- Poster menu -->
@@ -138,7 +138,10 @@
 		  
 		
 		</a-entity>
-		</a-entity>
+		
+		
+		
+		
 		
 		
 		 <a-videosphere 
@@ -146,6 +149,11 @@
 			visible = "false">
 			
 		 </a-videosphere>
+		
+		</a-entity>
+		
+		
+		
 		
 		 <!-- 360 player sphere 
 		
@@ -160,10 +168,17 @@
       </a-entity>
 	  
 	  -->
+	  
+	 
+	  
+
+	  
+	  
 	   <a-assets>
 	       <video id = "output" crossOrigin = "anonymous" src="Video/BostonBarrier/output.mp4" width="2048" height="1024" ></video>
 		   <video id = "Boston_01_2mbits" crossOrigin = "anonymous" src="Video/BostonBarrier/Boston_01_2mbits.mp4" width="2048" height="1024" ></video>
 		   <video id = "Boston_02_2mbits" crossOrigin = "anonymous" src="Video/BostonBarrier/Boston_02_2mbits.mp4" width="2048" height="1024" ></video>
+		   <video id = "Boston_03_2mbits" crossOrigin = "anonymous" src="Video/BostonBarrier/Boston_03_2mbits.mp4" width="2048" height="1024" ></video>
 	   
 			
 	   

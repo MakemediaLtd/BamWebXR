@@ -13,9 +13,11 @@ AFRAME.registerComponent('info-panel', {
 	this._360VideoPlayer = document.querySelector('#_360Player');
 	
 	
-	this.UIMenu = document.querySelector('#ui');
+	this.UIMenu = document.querySelector('#menu');
 	this.InfoPanel = document.querySelector('#infoPanel');
 	
+	this.Cam = document.querySelector('#cam');
+	this.wrapScene = document.querySelector('#wrapScene');
 	
 
     this.movieInfo = {
@@ -68,7 +70,15 @@ AFRAME.registerComponent('info-panel', {
 		BostonBarrierBTN:{
 			title:'Boston Barrier',
 			description: 'BMJV, a Joint Venture between BAM Nuttall and Mott MacDonald were awarded the contract for the design and construction of flood defence works including the movable gate across the River Haven protecting over 14,000 homes.  Boston has been susceptible to flooding with a significant tidal event in 2013 causing damage to 100s of homes.  The new barrier will protect the town from tidal surge flooding for years to come.',
-			vidSrc: 'Video/LondonCityAirport/Airport_01.mp4',
+			vidSrc: 
+			[
+				'output',
+				//'Boston_01_2mbits',
+				'output'
+				//'output',
+				//'Boston_02_2mbits',
+				//'Boston_03_2mbits'
+			],
 			bannerImg: 'ProjectImages/Boston Barrier.jpg',
 			imgEl: document.querySelector('#MovieImage')
 			
@@ -88,13 +98,15 @@ AFRAME.registerComponent('info-panel', {
 	
 
 	
-    this.backgroundEl = document.querySelector('#background');
-    for (var i = 0; i < buttonEls.length; ++i) {
+    //this.backgroundEl = document.querySelector('#background');
+    
+	
+	for (var i = 0; i < buttonEls.length; ++i) {
       buttonEls[i].addEventListener('click', this.onMenuButtonClick);
     }
 	
 	
-   this.backgroundEl.addEventListener('click', this.onBackgroundClick);
+  // this.backgroundEl.addEventListener('click', this.onBackgroundClick);
    this.el.object3D.renderOrder = 9999999;
    this.el.object3D.depthTest = false;
     fadeBackgroundEl.object3D.renderOrder = 9;
@@ -124,8 +136,11 @@ AFRAME.registerComponent('info-panel', {
     this.movieDescriptionEl.setAttribute('text', 'value', movieInfo.description);
   },
 
+
+// change this to a 'close' button?
+
   onBackgroundClick: function (evt) {
-    this.backgroundEl.object3D.scale.set(0.001, 0.001, 0.001);
+   // this.backgroundEl.object3D.scale.set(0.001, 0.001, 0.001);
     this.el.object3D.scale.set(0.001, 0.001, 0.001);
     this.el.object3D.visible = false;
     this.fadeBackgroundEl.object3D.visible = false;
@@ -150,6 +165,7 @@ AFRAME.registerComponent('info-panel', {
 	  
 	  
 	  this.UIMenu.setAttribute('visible',false);
+	  this.InfoPanel.object3D.visible = false;
 	
 	  
   },
@@ -169,6 +185,9 @@ AFRAME.registerComponent('info-panel', {
 	  else
 	  {
 		  this.currentSectionVideoIndex = 0;
+		  
+		  this.GoBackToMainMenu();
+		  
 	  }
 		  
 	  
@@ -178,6 +197,8 @@ AFRAME.registerComponent('info-panel', {
   
   playCurrentVideo: function()
   {
+	  console.log("Play current video");
+	  
 	   var id = this.currentSection.vidSrc[this.currentSectionVideoIndex];
 	
 	 
@@ -187,6 +208,31 @@ AFRAME.registerComponent('info-panel', {
 			
 			video.play();
 		  
+  },
+  
+  GoBackToMainMenu: function()
+  {
+	  
+	    this._360VideoPlayer.object3D.visible = false;
+		  
+	  this.UIMenu.setAttribute('visible',true);
+	  
+	  var camRotY =  this.Cam.object3D.rotation.y;
+	  
+	  
+	  console.log(camRotY);
+	 
+
+	  
+	  
+	  
+	  this.wrapScene.object3D.rotation.set(
+					0,
+					camRotY,
+					0,
+				);
+		
+	  
   }
   
 });
