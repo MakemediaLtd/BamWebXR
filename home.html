@@ -36,6 +36,7 @@
           material="src: #ponyo; shader: flat; transparent: true"
           position="0 0.495 0.002"
          ></a-mixin>
+		 
       </a-assets>
 
     
@@ -43,7 +44,37 @@
         position="0 1.6 0"
 		id = "cam"
         camera look-controls="magicWindowTrackingEnabled: false; touchEnabled: false; mouseEnabled: true">
-        <a-entity
+        
+		<a-entity PlayerMenu 
+		position="-0.255 0 0"
+		>
+		<a-entity 
+		
+		id="PlayerMenuNextVideo"
+		geometry="primitive: plane; width: 0.3; height: 0.125"
+		material="color: white"
+		position="0 -0.4 -1"
+		animation__scale="property: scale; to: 1.2 1.2 1.2; dur: 200; startEvents: mouseenter"
+        animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave"
+        class="raycastable"
+		> </a-entity>
+		
+		
+		<a-entity 
+		
+		id="PlayerMenuReturnToMainMenu"
+		geometry="primitive: plane; width: 0.3; height: 0.125"
+		material="color: white"
+		position="0.35 -0.4 -1"
+		animation__scale="property: scale; to: 1.2 1.2 1.2; dur: 200; startEvents: mouseenter"
+        animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave"
+        class="raycastable"
+		
+		> </a-entity>
+		
+		</a-entity>
+		
+		<a-entity
           id="fadeBackground"
           geometry="primitive: sphere; radius: 2.5"
           material="color: black; side: back; shader: flat; transparent: true; opacity: 0.6" visible="false">

@@ -19,6 +19,8 @@ AFRAME.registerComponent('info-panel', {
 	this.Cam = document.querySelector('#cam');
 	this.wrapScene = document.querySelector('#wrapScene');
 	
+	this.playerMenu = doctype.querySelector('#PlayerMenu');
+	
 
     this.movieInfo = {
       karigurashiButton: {
@@ -220,7 +222,7 @@ AFRAME.registerComponent('info-panel', {
 	  var camRotY =  this.Cam.object3D.rotation.y;
 	  
 	  
-	  console.log(camRotY);
+	  //console.log(camRotY);
 	 
 
 	  
