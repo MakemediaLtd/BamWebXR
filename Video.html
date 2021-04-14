@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Video</title>
+    <meta name="description" content="Video - A-Frame">
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="play-on-click.js"></script>
+    <script src="hide-on-play.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <video id="_360Play" preload="auto"
+               src="Video\BostonBarrier\Boston_01.mp4"
+               width="2048" height="1024" autoplay loop="true"
+               crossOrigin="anonymous" ></video>
+  
+      </a-assets>
+
+     
+      <a-entity material="shader: flat; src: #_360Play; side: back"
+                geometry="primitive: sphere; radius: 100"
+                position="0 0 0"
+                rotation="0 0 0"
+				scale = "1 1 -1"
+                play-on-click
+                visible="false">
+      </a-entity>
+
+      <a-camera look-controls>
+        <a-entity
+          position="0 0 -1.5"
+          text="align: center;
+                width: 6;
+                wrapCount: 100;
+                color: black;
+                value: Click or tap to start video"
+          hide-on-play="#_360Play">
+        </a-entity>
+      </a-camera>
+    </a-scene>
+  </body>
+</html>
