@@ -45,32 +45,39 @@
 		id = "cam"
         camera look-controls="magicWindowTrackingEnabled: false; touchEnabled: false; mouseEnabled: true">
         
-		<a-entity PlayerMenu 
+		<a-entity 
+		id="PlayerMenu"
 		position="-0.255 0 0"
 		>
 		<a-entity 
-		
-		id="PlayerMenuNextVideo"
+			<
+		id="PlayerMenuReturnToMainMenu"
 		geometry="primitive: plane; width: 0.3; height: 0.125"
 		material="color: white"
 		position="0 -0.4 -1"
 		animation__scale="property: scale; to: 1.2 1.2 1.2; dur: 200; startEvents: mouseenter"
         animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave"
         class="raycastable"
-		> </a-entity>
+		> 
+		<a-entity text="value: Return to Menu; color: black; align: center; width: 0.8;  "></a-entity>
+		
+		
+		</a-entity>
 		
 		
 		<a-entity 
 		
-		id="PlayerMenuReturnToMainMenu"
+		id="PlayerMenuNextVideo"
 		geometry="primitive: plane; width: 0.3; height: 0.125"
 		material="color: white"
 		position="0.35 -0.4 -1"
 		animation__scale="property: scale; to: 1.2 1.2 1.2; dur: 200; startEvents: mouseenter"
         animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave"
         class="raycastable"
+		> 
+		<a-entity text="value: Play Next Video; color: black; align: center; width: 0.8;  "></a-entity>
 		
-		> </a-entity>
+		</a-entity>
 		
 		</a-entity>
 		

@@ -19,26 +19,10 @@ AFRAME.registerComponent('info-panel', {
 	this.Cam = document.querySelector('#cam');
 	this.wrapScene = document.querySelector('#wrapScene');
 	
-	this.playerMenu = doctype.querySelector('#PlayerMenu');
+	this.playerMenu = document.querySelector('#PlayerMenu');
+	this.playerMenuNextVideo = document.querySelector('#PlayerMenuNextVideo');
+	this.playerMenuReturnToMainMenu = document.querySelector('#PlayerMenuReturnToMainMenu');
 	
-
-    this.movieInfo = {
-      karigurashiButton: {
-        title: 'The Secret World of Arrietty (2010)',
-        imgEl: document.querySelector('#karigurashiMovieImage'),
-        description: 'Based on the 1952 novel The Borrowers by Mary Norton, an English author of children\'s books, about a family of tiny people who live secretly in the walls and floors of a typical household, borrowing items from humans to survive.'
-      },
-      kazetachinuButton: {
-        title: 'The Wind Rises (2013)',
-        imgEl: document.querySelector('#kazetachinuMovieImage'),
-        description: 'The Wind Rises is a fictionalised biographical film of Jiro Horikoshi (1903, 1982), designer of the Mitsubishi A5M fighter aircraft and its successor, the Mitsubishi A6M Zero, used by the Empire of Japan during World War II. The film is adapted from Miyazaki\'s manga of the same name, which was in turn loosely based on both the 1937 novel The Wind Has Risen by Tatsuo Hori and the life of Jiro Horikoshi.'
-      },
-      ponyoButton: {
-        title: 'Ponyo (2003)',
-        imgEl: document.querySelector('#ponyoMovieImage'),
-        description: 'It is the eighth film Miyazaki directed for Studio Ghibli, and his tenth overall. The film tells the story of Ponyo (Nara), a goldfish who escapes from the ocean and is rescued by a five-year-old human boy, Sōsuke (Doi) after she is washed ashore while trapped in a glass jar.'
-      }
-    };
 	
 	this.bamXrInfo = {
 		LondonCityAirportBTN:{
@@ -86,18 +70,23 @@ AFRAME.registerComponent('info-panel', {
 			
 		}
 		
-	}
+	};
 
     this.onMenuButtonClick = this.onMenuButtonClick.bind(this);
     this.onBackgroundClick = this.onBackgroundClick.bind(this);
 	this.onPlay360Click = this.onPlay360Click.bind(this);
 	this.on360VideoEnded = this.on360VideoEnded.bind(this);
+	this.GoBackToMainMenu = this.GoBackToMainMenu.bind(this);
+	this.playNextVideo = this.playNextVideo.bind(this);
+	
 	
 	this.play360Button = document.querySelector('#play360Button');
 	play360Button.addEventListener('click', this.onPlay360Click);
 	
 	this._360VideoPlayer.addEventListener('materialvideoended', this.on360VideoEnded);
 	
+	this.playerMenuReturnToMainMenu.addEventListener('click', this.GoBackToMainMenu);
+	this.playerMenuNextVideo.addEventListener('click', this.playNextVideo);
 
 	
     //this.backgroundEl = document.querySelector('#background');
@@ -113,12 +102,17 @@ AFRAME.registerComponent('info-panel', {
    this.el.object3D.depthTest = false;
     fadeBackgroundEl.object3D.renderOrder = 9;
     fadeBackgroundEl.getObject3D('mesh').material.depthTest = false;
+	
+	
+	this.playerMenu.setAttribute('visible', false);
+	
   },
 
   onMenuButtonClick: function (evt) {
     var movieInfo = this.bamXrInfo[evt.currentTarget.id];
 	
 	this.currentSection = movieInfo;
+	this.currentSectionVideoIndex = 0;
 	
 	console.log(evt.currentTarget.id);
 
@@ -153,6 +147,8 @@ AFRAME.registerComponent('info-panel', {
 	  
 	  console.log("Play 360 pressed");
 	  this._360VideoPlayer.object3D.visible = true;
+	    
+	  this.playerMenu.setAttribute('visible', true);
 	  
 	 // console.log(this.currentSection.vidSrc[this.currentSectionVideoIndex]);
 	  console.log('harrisonp.xyz/WebXR/' + this.currentSection.vidSrc[this.currentSectionVideoIndex]);
@@ -186,7 +182,7 @@ AFRAME.registerComponent('info-panel', {
 	  }
 	  else
 	  {
-		  this.currentSectionVideoIndex = 0;
+		 
 		  
 		  this.GoBackToMainMenu();
 		  
@@ -201,6 +197,11 @@ AFRAME.registerComponent('info-panel', {
   {
 	  console.log("Play current video");
 	  
+	  if(this.currentSectionVideoIndex == this.currentSection.vidSrc.length - 1)
+	  {
+		this.playerMenuNextVideo.setAttribute('visible', false);
+	  }
+	  
 	   var id = this.currentSection.vidSrc[this.currentSectionVideoIndex];
 	
 	 
@@ -208,21 +209,59 @@ AFRAME.registerComponent('info-panel', {
 	 
 			var video = document.querySelector("#"+id);
 			
+			video.currentTime = 0;
 			video.play();
+			
 		  
   },
+  
+  playNextVideo: function()
+  {
+	  console.log("Play next video");
+	  
+	  this.currentSectionVideoIndex ++;
+	  
+	  this.playCurrentVideo();
+	 
+		  
+  },
+  
+   stopCurrentVideo: function()
+  {
+	  console.log("Stop current video");
+	  
+	   var id = this.currentSection.vidSrc[this.currentSectionVideoIndex];
+	
+	 
+			this._360VideoPlayer.setAttribute('material','src', "#"+id);
+	 
+			var video = document.querySelector("#"+id);
+			
+			video.pause();
+		  
+  },
+  
   
   GoBackToMainMenu: function()
   {
 	  
+	  this.playerMenu.setAttribute('visible', false);
+	  this.playerMenuNextVideo.setAttribute('visible', true); // add this back in 
+ 	  
+	  this.stopCurrentVideo();
+	  
+	   this.currentSectionVideoIndex = 0;
+	   
+	  
 	    this._360VideoPlayer.object3D.visible = false;
+		this.InfoPanel.object3D.visible = false;
 		  
-	  this.UIMenu.setAttribute('visible',true);
+		this.UIMenu.setAttribute('visible',true);
 	  
-	  var camRotY =  this.Cam.object3D.rotation.y;
+		var camRotY =  this.Cam.object3D.rotation.y;
 	  
 	  
-	  //console.log(camRotY);
+		//console.log(camRotY);
 	 
 
 	  
