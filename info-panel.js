@@ -25,6 +25,15 @@ AFRAME.registerComponent('info-panel', {
 	this.playerMenuReturnToMainMenu = document.querySelector('#PlayerMenuReturnToMainMenu');
 	
 	
+	var PanelBackground  = 'UI/PanelBackground.png';
+	var Play360ButtonBackground = 'UI/PlayButtonBackground.png';
+	
+	this.welcomePanel = document.querySelector('#welcomePanel');
+	
+	this.welcomePanel.setAttribute('material', 'src', PanelBackground);
+	
+	this.InfoPanel.setAttribute('material', 'src', PanelBackground);
+	
 	
 	this.bamXrInfo = {
 		LondonCityAirportBTN:{
@@ -91,7 +100,10 @@ AFRAME.registerComponent('info-panel', {
 	
 	
 	this.play360Button = document.querySelector('#play360Button');
-	play360Button.addEventListener('click', this.onPlay360Click);
+	this.play360Button.addEventListener('click', this.onPlay360Click);
+	this.play360Button.setAttribute('material', 'src',Play360ButtonBackground);
+	
+	
 	
 	
 	this.closeButton.addEventListener('click', this.onCloseClick);
@@ -119,10 +131,16 @@ AFRAME.registerComponent('info-panel', {
   this.playerMenu.setAttribute('visible', false);
     this.playerMenuNextVideo.setAttribute('class', "");
 	  this.playerMenuReturnToMainMenu.setAttribute('class', "");
+	  
+	  this.play360Button.setAttribute('visible', false);
 	
   },
 
   onMenuButtonClick: function (evt) {
+	  
+	 this.welcomePanel.object3D.visible = false;
+	 this.play360Button.setAttribute('visible', true);
+	  
     var movieInfo = this.bamXrInfo[evt.currentTarget.id];
 	
 	this.currentSection = movieInfo;
@@ -282,7 +300,8 @@ AFRAME.registerComponent('info-panel', {
 	   
 	  
 	    this._360VideoPlayer.object3D.visible = false;
-		this.InfoPanel.object3D.visible = false;
+		this.InfoPanel.object3D.visible = true;
+		this.welcomePanel.object3D.visible = true;
 		  
 		this.UIMenu.setAttribute('visible',true);
 		  this.UIMenu.object3D.scale.set(1, 1, 1);

@@ -25,7 +25,7 @@
 		<a-mixin
           id="frame"
           geometry="primitive: plane; width: 1; height: 0.5"
-          material="color: green; shader: flat"
+          material="color: #9DB08C; shader: flat"
           animation__scale="property: scale; to: 1.2 1.2 1.2; dur: 200; startEvents: mouseenter"
           animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave"
          ></a-mixin>
@@ -33,7 +33,7 @@
          <a-mixin
           id="movieImage"
           geometry="primitive: plane; width: 2.7; height: 1.6"
-          material="src: #ponyo; shader: flat; transparent: true"
+          material="shader: flat; transparent: true"
           position="0.705 0 0.001"
          ></a-mixin>
 		 
@@ -118,23 +118,23 @@
 		
 			
 			<a-entity id="LondonCityAirportBTN" mixin="frame" class="raycastable menu-button">
-				<a-entity text="value: London City Airport; color: black; align: center; width: 2;  "></a-entity>
+				<a-entity text="value: London City Airport; color: white; align: center; width: 2;  "></a-entity>
 			</a-entity>
 			
 			
 			<a-entity id="TidwayBTN" mixin="frame" class="raycastable menu-button">
-				<a-entity text="value: Tidway; color: black; align: center; width: 2;  "></a-entity>
+				<a-entity text="value: Tidway; color: white; align: center; width: 2;  "></a-entity>
 			</a-entity>
 			
 	
 
 			<a-entity id="HPCBTN"  mixin="frame" class="raycastable menu-button">
-				<a-entity text="value: Hinkley Point C; color: black; align: center; width: 2;  "></a-entity>
+				<a-entity text="value: Hinkley Point C; color: white; align: center; width: 2;  "></a-entity>
 			</a-entity>
 			
 		
 			<a-entity id="BostonBarrierBTN"  mixin="frame" class="raycastable menu-button">
-				<a-entity text="value: Boston Barrier; color: black; align: center; width: 2;  "></a-entity>
+				<a-entity text="value: Boston Barrier; color: white; align: center; width: 2;  "></a-entity>
 			</a-entity>
 			
 			    <!-- old 
@@ -148,6 +148,22 @@
 		
 		</a-entity>
 
+
+		   <a-entity
+          id="welcomePanel"
+          position="-0.196 1.3 0.01"
+      
+          visible="true"
+          scale="1 1 1"
+          geometry="primitive: plane; width: 4.36; height: 1.8"
+          material="color: white; shader: flat; transparent: false;" class="raycastable">
+		  	<a-entity  position="0 0.5 0" text="shader: msdf; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; value: Welcome to BAM Nuttall; color: white; align: center; width: 3" class="raycastable play360-button"></a-entity>
+			<a-entity position="0 0 0" text="shader: msdf; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; value: To navigate through the menus, click or direct your gaze towards a button or icon to launch; color: white; align: center; width: 2.3" class="raycastable play360-button"></a-entity>
+			<a-entity position="0 -0.7 0" text="shader: msdf; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; value: To navigate through the menus, click or direct your gaze towards a button or icon to launch; color: white; align: center; width: 2.3" class="raycastable play360-button"></a-entity>
+		
+		  </a-entity>
+		 
+
         <!-- Info panel of the selected movie. -->
         <a-entity
           id="infoPanel"
@@ -156,28 +172,29 @@
           visible="true"
           scale="1 1 1"
           geometry="primitive: plane; width: 4.36; height: 1.8"
-          material="color: green; shader: flat; transparent: false" class="raycastable">
+          material="color: white; shader: flat; transparent: false" class="raycastable">
 		  
 		 
 		  
           <a-entity id="MovieImage" mixin="movieImage" visible="true"></a-entity>
            <a-entity id="movieTitle"
-            position="-0.68 -0.2 0"
-            text="shader: msdf; value: this is a title; anchor: left; width: 1.5; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white"></a-entity>
+            position="-2.1 0.7 0"
+            text="shader: msdf; value: this is a title; anchor: left; width: 2; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white"></a-entity>
           <a-entity id="movieDescription"
-            position="-0.68 -0.3 0"
-            text="baseline: top; shader: msdf; anchor: left; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; value: this is some copy this is some copy "></a-entity>
+            position="-2.1 0.6 0"
+            text="baseline: top; shader: msdf; anchor: left; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; width: 1.4; value: this is some copy this is some copy "></a-entity>
 		  
 		  
 		   <a-entity id="play360Button"
 			geometry="primitive: circle; radius: 0.25"
-			material="color: white"
 			
-			position="1.64 -0.746 0.1"
+			material="color: white; opacity: 0.99"
+			
+			position="2 -0.746 0.1"
 			animation__scale="property: scale; to: 1.2 1.2 1.2; dur: 200; startEvents: mouseenter"
 			animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave"
 			
-			<a-entity text="value: Play 360; color: black; align: center; width: 2" class="raycastable play360-button"></a-entity>
+			<a-entity text="shader: msdf; value: Play 360; color: black; align: center; width: 1.7;" class="raycastable play360-button"></a-entity>
 			
 			 
 			</a-entity>
