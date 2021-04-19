@@ -45,7 +45,11 @@ AFRAME.registerComponent('info-panel', {
 				'Airport_02'
 			],
 			bannerImg: 'ProjectImages/London-City-Airport-2.jpg',
-			imgEl: document.querySelector('#MovieImage')
+			imgEl: document.querySelector('#MovieImage'),
+			keyFacts:
+			[
+			
+			]
 			
 		},
 		TidwayBTN:{
@@ -57,7 +61,12 @@ AFRAME.registerComponent('info-panel', {
 				'Airport_02'
 			],
 			bannerImg: 'ProjectImages/TTW.jpg',
-			imgEl: document.querySelector('#MovieImage')
+			imgEl: document.querySelector('#MovieImage'),
+			keyFacts:
+			[
+			
+			]
+			
 			
 		},
 		HPCBTN:{
@@ -69,7 +78,11 @@ AFRAME.registerComponent('info-panel', {
 				'Airport_02'
 			],
 			bannerImg: 'ProjectImages/hinkley_point.jpg',
-			imgEl: document.querySelector('#MovieImage')
+			imgEl: document.querySelector('#MovieImage'),
+			keyFacts:
+			[
+			
+			]
 			
 		},
 		BostonBarrierBTN:{
@@ -85,7 +98,14 @@ AFRAME.registerComponent('info-panel', {
 				'Boston_03_2mbits'
 			],
 			bannerImg: 'ProjectImages/Boston Barrier.jpg',
-			imgEl: document.querySelector('#MovieImage')
+			imgEl: document.querySelector('#MovieImage'),
+			keyFacts:
+			[
+				'The movable steel flood barrier is 25m wide and weighs 300 tonnes',		
+				'2000 tonnes of sheet piles and 19000 tonnes of concrete will be installed',
+				'Work started August 2017 and planned completion is by end of 2021',
+				'£105m project'
+			]
 			
 		}
 		
