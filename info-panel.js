@@ -48,7 +48,10 @@ AFRAME.registerComponent('info-panel', {
 			imgEl: document.querySelector('#MovieImage'),
 			keyFacts:
 			[
-			
+				'Prior to work a 500kg UXB was found and safely detonated by the Royal Navy',		
+				'New deck is suspended over the existing dock which is 11m deep',
+				'Work started in Jan 2018 and planned completion is May 2020',
+				'Original award was £85m split 70% BAM Nuttall and 30% BAM International'
 			]
 			
 		},
@@ -64,7 +67,10 @@ AFRAME.registerComponent('info-panel', {
 			imgEl: document.querySelector('#MovieImage'),
 			keyFacts:
 			[
-			
+				'The river is used to transport materials and work arisings',		
+				'Each barge movement on the river saves up to 100 road transport movements',
+				'Work began 2016 and will complete in 2022',
+				'£416m split equally between the three JV partners'
 			]
 			
 			
@@ -81,7 +87,10 @@ AFRAME.registerComponent('info-panel', {
 			imgEl: document.querySelector('#MovieImage'),
 			keyFacts:
 			[
-			
+				'Seawall - 50,000m³ of in-situ concrete placed in a SSSI marine environment, without environmental incident',		
+				'Deep Dig – HOR completed ahead of schedule considered the foundation of the HPC Project',
+				'10 year project timeline. Currently various goals still to launch which are all critical to the ‘Drive to ’25’',
+				'Cost of total project £22.5bn'
 			]
 			
 		},
