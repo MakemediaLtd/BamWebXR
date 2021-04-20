@@ -134,6 +134,10 @@ AFRAME.registerComponent('info-panel', {
 	this.playerMenuNextVideo.addEventListener('click', this.playNextVideo);
 
 	
+	this.keyFactPin = document.querySelector('#keyFactPin');
+	this.keyFactCrane = document.querySelector('#keyFactCrane');
+	this.keyFactStopWatch = document.querySelector('#keyFactStopWatch');
+	this.keyFactMoney = document.querySelector('#keyFactPinMoney');
 	
 	for (var i = 0; i < buttonEls.length; ++i) {
       buttonEls[i].addEventListener('click', this.onMenuButtonClick);
@@ -182,6 +186,12 @@ AFRAME.registerComponent('info-panel', {
 
     this.movieTitleEl.setAttribute('text', 'value', movieInfo.title);
     this.movieDescriptionEl.setAttribute('text', 'value', movieInfo.description);
+	console.log(movieInfo.keyFacts[0]);
+	this.keyFactPin.setAttribute('text', 'value', movieInfo.keyFacts[0]);
+	this.keyFactCrane.setAttribute('text', 'value', movieInfo.keyFacts[1]);
+	this.keyFactStopWatch.setAttribute('text', 'value', movieInfo.keyFacts[2]);
+	this.keyFactMoney.setAttribute('text', 'value', movieInfo.keyFacts[3]);
+	
   },
 
 
