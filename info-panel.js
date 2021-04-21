@@ -41,8 +41,12 @@ AFRAME.registerComponent('info-panel', {
 			description: 'BAM Nuttall and BAM International have jointly been awarded a contract for £85m to construct a 75,000m² concrete deck extension providing a new taxiway and additional aircraft parking.  The project is part of a £480m development programme for the airport and involves over 1000 steel cased concrete piles, installation of over 6000 precast sections and pouring over 43,500m³ of concrete.',
 			vidSrc: 
 			[
-				'output',
-				'Airport_02'
+				'Airport_01_2mbits',
+				'Airport_02_2mbits',
+				'Airport_03_2mbits',
+				'Airport_04_2mbits',
+				'Airport_05_2mbits'
+				
 			],
 			bannerImg: 'ProjectImages/London-City-Airport-2.jpg',
 			imgEl: document.querySelector('#MovieImage'),
@@ -60,8 +64,9 @@ AFRAME.registerComponent('info-panel', {
 			description: 'BMB, a Joint Venture between BAM Nuttall, Morgan Sindall and Balfour Beatty was awarded the £416m contract to construct the 6km west section of the Thames Tideway Tunnel.  The Tunnel’s purpose is to prevent pollution from the city’s sewerage network being discharged directly into the Thames estimated in tens of millions of tonnes per year.  The overall cost of the Tideway project is £4.9bn.',
 			vidSrc: 
 			[
-				'output',
-				'Airport_02'
+				'Tideway_01_2mbits',
+				'Tideway_02_2mbits',
+				'Tideway_03_2mbits'
 			],
 			bannerImg: 'ProjectImages/TTW.jpg',
 			imgEl: document.querySelector('#MovieImage'),
@@ -80,8 +85,13 @@ AFRAME.registerComponent('info-panel', {
 			description: 'The first new nuclear power station to be built in the UK in over 20 years; Hinkley Point C will provide low-carbon electricity for around 6 million homes, create thousands of jobs and bring lasting benefits to the UK economy. On a site that is the size of 245 football pitches, the KBJV team are working on site preparation and earthworks stages of the project.',
 			vidSrc: 
 			[
-				'output',
-				'Airport_02'
+				'HPC_01_2mbits',
+				'HPC_02_2mbits',
+				'HPC_03_2mbits',
+				'HPC_04_2mbits',
+				'HPC_05_2mbits',
+				'HPC_06_2mbits',
+				'HPC_07_2mbits'
 			],
 			bannerImg: 'ProjectImages/hinkley_point.jpg',
 			imgEl: document.querySelector('#MovieImage'),
