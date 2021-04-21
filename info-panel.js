@@ -49,6 +49,7 @@ AFRAME.registerComponent('info-panel', {
 				
 			],
 			bannerImg: 'ProjectImages/London-City-Airport-2.jpg',
+			_360Img: 'Airport_04_130446',
 			imgEl: document.querySelector('#MovieImage'),
 			keyFacts:
 			[
@@ -69,6 +70,7 @@ AFRAME.registerComponent('info-panel', {
 				'Tideway_03_2mbits'
 			],
 			bannerImg: 'ProjectImages/TTW.jpg',
+			_360Img: 'Tideway_01_182549',
 			imgEl: document.querySelector('#MovieImage'),
 			keyFacts:
 			[
@@ -94,6 +96,7 @@ AFRAME.registerComponent('info-panel', {
 				'HPC_07_2mbits'
 			],
 			bannerImg: 'ProjectImages/hinkley_point.jpg',
+			_360Img: 'HPC_07_135636',
 			imgEl: document.querySelector('#MovieImage'),
 			keyFacts:
 			[
@@ -117,6 +120,7 @@ AFRAME.registerComponent('info-panel', {
 				'Boston_03_2mbits'
 			],
 			bannerImg: 'ProjectImages/Boston Barrier.jpg',
+			_360Img: 'Boston_03_155408',
 			imgEl: document.querySelector('#MovieImage'),
 			keyFacts:
 			[
@@ -148,6 +152,9 @@ AFRAME.registerComponent('info-panel', {
 	this.closeButton.addEventListener('click', this.onCloseClick);
 	
 	this._360VideoPlayer.addEventListener('materialvideoended', this.on360VideoEnded);
+	
+	this._360VideoPlayer.object3D.visible = true;
+	this._360VideoPlayer.setAttribute('material', 'src', "#"+this.bamXrInfo['LondonCityAirportBTN']._360Img);
 	
 	this.playerMenuReturnToMainMenu.addEventListener('click', this.GoBackToMainMenu);
 	this.playerMenuNextVideo.addEventListener('click', this.playNextVideo);
@@ -210,6 +217,9 @@ AFRAME.registerComponent('info-panel', {
 	this.keyFactCrane.setAttribute('text', 'value', movieInfo.keyFacts[1]);
 	this.keyFactStopWatch.setAttribute('text', 'value', movieInfo.keyFacts[2]);
 	this.keyFactMoney.setAttribute('text', 'value', movieInfo.keyFacts[3]);
+	
+	this._360VideoPlayer.setAttribute('material', 'src', "#"+movieInfo._360Img);
+	
 	
   },
 
@@ -348,7 +358,11 @@ AFRAME.registerComponent('info-panel', {
 	   this.currentSectionVideoIndex = 0;
 	   
 	  
-	    this._360VideoPlayer.object3D.visible = false;
+	    //this._360VideoPlayer.object3D.visible = false;
+		
+		this._360VideoPlayer.setAttribute('material', 'src', "#"+this.bamXrInfo['LondonCityAirportBTN']._360Img);
+	
+		
 		this.InfoPanel.object3D.visible = true;
 		this.welcomePanel.object3D.visible = true;
 		  
