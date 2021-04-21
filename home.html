@@ -17,7 +17,7 @@
       background="color: #212"
       webxr="referenceSpaceType: local"
     
-      cursor="rayOrigin: mouse; fuse: false" raycaster="objects: .raycastable"
+      
       info-message="htmlSrc: #messageText">
       <a-assets>
         <a-asset-item id="messageText" src="message.html"></a-asset-item>
@@ -50,8 +50,24 @@
 	 <a-entity
         position="0 1.6 0"
 		id = "cam"
-        camera look-controls="magicWindowTrackingEnabled: false; touchEnabled: false; mouseEnabled: true">
-        
+        camera look-controls="magicWindowTrackingEnabled: false; touchEnabled: true; mouseEnabled: true"
+		>
+		
+		<a-entity
+		 id = "cursor"
+		 cursor="rayOrigin: entity; fuse: true; fuseTimeout: 600"
+		 raycaster = "objects: .raycastable"
+		 geometry="primitive: circle; radius: 0.01"
+		 position="0 0 -1"
+		 material ="color: black"
+		 animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 600; from: 1 1 1; to: 0.3 0.3 0.3"
+		 animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
+		 animation__mouseenter="property: components.material.material.color; type: color; to: white; startEvents: mouseenter; dur: 50"
+		 animation__mouseleave2="property: components.material.material.color; type: color; to: black; startEvents: mouseleave; dur: 50"
+		 
+		 >
+		</a-entity>
+		
 		<a-entity 
 		id="PlayerMenu"
 		position="-0.255 0 0"
@@ -163,7 +179,7 @@
           visible="true"
           scale="1 1 1"
           geometry="primitive: plane; width: 4.36; height: 1.8"
-          material="color: white; shader: flat; transparent: false;" class="raycastable">
+          material="color: white; shader: flat; transparent: false;">
 		  	<a-entity  position="0 0.5 0" text="shader: msdf; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; value: Welcome to BAM Nuttall; color: white; align: center; width: 3" class="raycastable play360-button"></a-entity>
 			<a-entity position="0 0 0" text="shader: msdf; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; value: To navigate through the menus, click or direct your gaze towards a button or icon to launch; color: white; align: center; width: 2.3" class="raycastable play360-button"></a-entity>
 			<a-entity position="0 -0.7 0" text="shader: msdf; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; value: To navigate through the menus, click or direct your gaze towards a button or icon to launch; color: white; align: center; width: 2.3" class="raycastable play360-button"></a-entity>
@@ -179,7 +195,7 @@
           visible="true"
           scale="1 1 1"
           geometry="primitive: plane; width: 4.36; height: 1.8"
-          material="color: white; shader: flat; transparent: false" class="raycastable">
+          material="color: white; shader: flat; transparent: false">
 		  
 		 
 		  
@@ -295,7 +311,7 @@
 	  
 	  
 	   <a-assets>
-	       <video id = "output" crossOrigin = "anonymous" src="Video/BostonBarrier/output.mp4" width="2048" height="1024" ></video>
+	       <video id = "output" crossOrigin = "anonymous" src="Video/BostonBarrier/half2.mp4" width="2048" height="1024" ></video>
 		   <video id = "Boston_01_2mbits" crossOrigin = "anonymous" src="Video/BostonBarrier/Boston_01_2mbits.mp4" width="2048" height="1024" ></video>
 		   <video id = "Boston_02_2mbits" crossOrigin = "anonymous" src="Video/BostonBarrier/Boston_02_2mbits.mp4" width="2048" height="1024" ></video>
 		   <video id = "Boston_03_2mbits" crossOrigin = "anonymous" src="Video/BostonBarrier/Boston_03_2mbits.mp4" width="2048" height="1024" ></video>

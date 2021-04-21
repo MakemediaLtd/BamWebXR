@@ -35,6 +35,8 @@ AFRAME.registerComponent('info-panel', {
 	this.InfoPanel.setAttribute('material', 'src', PanelBackground);
 	
 	
+	// Need to set RAY ORIGIN to enity if we are in VR
+	
 	this.bamXrInfo = {
 		LondonCityAirportBTN:{
 			title:'London City Airport',
@@ -112,7 +114,7 @@ AFRAME.registerComponent('info-panel', {
 			description: 'BMJV, a Joint Venture between BAM Nuttall and Mott MacDonald were awarded the contract for the design and construction of flood defence works including the movable gate across the River Haven protecting over 14,000 homes.  Boston has been susceptible to flooding with a significant tidal event in 2013 causing damage to 100s of homes.  The new barrier will protect the town from tidal surge flooding for years to come.',
 			vidSrc: 
 			[
-				//'output',
+				'output',
 				'Boston_01_2mbits',
 				//'output'
 				//'output',
@@ -201,7 +203,10 @@ AFRAME.registerComponent('info-panel', {
     //this.backgroundEl.object3D.scale.set(1, 1, 1);
 
     this.el.object3D.scale.set(1, 1, 1);
-    if (AFRAME.utils.device.isMobile()) { this.el.object3D.scale.set(1.4, 1.4, 1.4); }
+	
+	console.log("force updated");
+	
+    //if (AFRAME.utils.device.isMobile()) { this.el.object3D.scale.set(1.4, 1.4, 1.4); }
     this.el.object3D.visible = true;
   //  this.fadeBackgroundEl.object3D.visible = true;
 
