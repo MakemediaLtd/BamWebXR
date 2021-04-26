@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Laser input UI</title>
+    <title>BAM: WebXR</title>
     <meta name="description" content="Laser input UI • A-Frame">
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-environment-component@1.2.0/dist/aframe-environment-component.min.js"></script>
@@ -46,11 +46,11 @@
 		 
       </a-assets>
 
-    
+    <a-entity id = "camRigHelper">
 	 <a-entity
         position="0 1.6 0"
 		id = "cam"
-        camera look-controls="magicWindowTrackingEnabled: false; touchEnabled: true; mouseEnabled: true"
+        camera look-controls="magicWindowTrackingEnabled: false; touchEnabled: true; mouseEnabled: true;"
 		>
 		
 		<a-entity
@@ -68,9 +68,19 @@
 		 >
 		</a-entity>
 		
-		<a-entity 
+	
+		
+		<a-entity
+          id="fadeBackground"
+          geometry="primitive: sphere; radius: 2.5"
+          material="color: black; side: back; shader: flat; transparent: true; opacity: 0.6" visible="false">
+        </a-entity>
+      </a-entity>
+	  </a-entity>
+	  
+	  	<a-entity 
 		id="PlayerMenu"
-		position="-0.255 0 0"
+		position="-0.259 1.6 0"
 		>
 		<a-entity 
 			<
@@ -104,15 +114,6 @@
 		</a-entity>
 		
 		</a-entity>
-		
-		<a-entity
-          id="fadeBackground"
-          geometry="primitive: sphere; radius: 2.5"
-          material="color: black; side: back; shader: flat; transparent: true; opacity: 0.6" visible="false">
-        </a-entity>
-      </a-entity>
-	  
-	  
 	   
 	
 

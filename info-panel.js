@@ -34,6 +34,8 @@ AFRAME.registerComponent('info-panel', {
 	
 	this.InfoPanel.setAttribute('material', 'src', PanelBackground);
 	
+	this.scene = document.querySelector('a-scene');
+	
 	
 	// Need to set RAY ORIGIN to enity if we are in VR
 	
@@ -114,7 +116,7 @@ AFRAME.registerComponent('info-panel', {
 			description: 'BMJV, a Joint Venture between BAM Nuttall and Mott MacDonald were awarded the contract for the design and construction of flood defence works including the movable gate across the River Haven protecting over 14,000 homes.  Boston has been susceptible to flooding with a significant tidal event in 2013 causing damage to 100s of homes.  The new barrier will protect the town from tidal surge flooding for years to come.',
 			vidSrc: 
 			[
-				'output',
+				//'output',
 				'Boston_01_2mbits',
 				//'output'
 				//'output',
@@ -142,6 +144,8 @@ AFRAME.registerComponent('info-panel', {
 	this.on360VideoEnded = this.on360VideoEnded.bind(this);
 	this.GoBackToMainMenu = this.GoBackToMainMenu.bind(this);
 	this.playNextVideo = this.playNextVideo.bind(this);
+	this.OnEnteredVRMode = this.OnEnteredVRMode.bind(this);
+	this.OnExitVRMode = this.OnExitVRMode.bind(this);
 	
 	
 	this.play360Button = document.querySelector('#play360Button');
@@ -149,7 +153,8 @@ AFRAME.registerComponent('info-panel', {
 	this.play360Button.setAttribute('material', 'src',Play360ButtonBackground);
 	
 	
-	
+	this.scene.addEventListener('enter-vr', this.OnEnteredVRMode);
+	this.scene.addEventListener('exit-vr',this.OnExitVRMode);
 	
 	this.closeButton.addEventListener('click', this.onCloseClick);
 	
@@ -185,6 +190,10 @@ AFRAME.registerComponent('info-panel', {
 	  this.playerMenuReturnToMainMenu.setAttribute('class', "");
 	  
 	  this.play360Button.setAttribute('visible', false);
+	  
+	  
+	this.onDesktopMode();
+	//this.onVRMode();
 	
   },
 
@@ -237,6 +246,41 @@ AFRAME.registerComponent('info-panel', {
     this.el.object3D.visible = false;
     this.fadeBackgroundEl.object3D.visible = false;
 	
+  },
+  
+  onDesktopMode: function()
+  {
+	  console.log("desktop mode");
+	  var cursor = document.querySelector('#cursor');
+	  cursor.setAttribute('cursor', 'rayOrigin', 'mouse');
+	  cursor.setAttribute('cursor','fuse', 'false');
+	  cursor.object3D.visible = false;
+	//	cursor="rayOrigin: entity; fuse: true; fuseTimeout: 600"	
+	
+	 var camRig = document.querySelector('#camRigHelper');
+	  
+	 camRig.object3D.position.set(
+					0,
+					0,
+					0,
+				); 
+	  
+  },
+    onVRMode: function()
+  {
+	  console.log("vr mode mode");
+	  var cursor = document.querySelector('#cursor');
+	  cursor.setAttribute('cursor', 'rayOrigin', 'entity');
+	  cursor.setAttribute('cursor','fuse', 'true');
+	  cursor.object3D.visible = true;
+	  
+	  var camRig = document.querySelector('#camRigHelper');
+	  
+	 camRig.object3D.position.set(
+					0,
+					1.6,
+					0,
+				); 
   },
   
   onPlay360Click: function(evt){
@@ -396,6 +440,35 @@ AFRAME.registerComponent('info-panel', {
 				);
 		
 	  
+  },
+  
+  OnEnteredVRMode: function()
+  {
+	  
+	this.onVRMode();
+  },
+  
+  OnExitVRMode: function()
+  {
+	  
+	  this.onDesktopMode();
+  },
+  
+  tick: function (time, timeDelta) {
+  
+	// called every frame 
+  
+	//console.log("ticking...?");
+	
+	
+	var camRotY =  this.Cam.object3D.rotation.y;
+	this.playerMenu.object3D.rotation.set(
+					0,
+					camRotY,
+					0,
+				);
+	
+	
   }
   
 });
