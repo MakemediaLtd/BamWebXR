@@ -39,6 +39,8 @@ AFRAME.registerComponent('info-panel', {
 	this.cursor = document.querySelector('#cursor');
 	this.camRig = document.querySelector('#camRigHelper');
 	
+	this.MenuYRotLast = 0;
+	
 	// Need to set RAY ORIGIN to enity if we are in VR
 	
 	this.bamXrInfo = {
@@ -492,11 +494,18 @@ AFRAME.registerComponent('info-panel', {
 	var camRotY =  this.Cam.object3D.rotation.y;
 	this.playerMenu.object3D.rotation.set(
 					0,
-					camRotY,
+					this.ease(camRotY),
 					0,
 				);
 	
+	this.MenuYRotLast = camRotY;
 	
+  },
+  
+  ease: function (t) { 
+  
+  return  THREE.MathUtils.damp(this.Cam.object3D.rotation.y, this.MenuYRotLast, 0.001, 0.01);
+  
   }
   
 });
