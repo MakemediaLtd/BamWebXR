@@ -6,7 +6,7 @@
     <meta name="description" content="Laser input UI • A-Frame">
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-environment-component@1.2.0/dist/aframe-environment-component.min.js"></script>
-   
+ 
     <script src="info-panel.js"></script>
 	<script src="https://unpkg.com/aframe-layout-component@4.3.1/dist/aframe-layout-component.min.js"></script> 
 
@@ -51,11 +51,17 @@
 		id = "cam"
         camera look-controls="magicWindowTrackingEnabled: false; touchEnabled: true; mouseEnabled: true;"
 		>
-		
+		<a-entity
+		 id = "cursor_mouse"
+		 raycaster = "objects: .raycastable; showLine: false; enabled: true "
+		 cursor="rayOrigin: mouse" >
+		 </entity>
+		 
 		<a-entity
 		 id = "cursor"
+		 visible = "false"
 		 cursor="rayOrigin: entity; fuse: true; fuseTimeout: 600"
-		 raycaster = "objects: .raycastable"
+		 raycaster = "objects: .raycastable; showLine: false; enabled: false"
 		 geometry="primitive: circle; radius: 0.01"
 		 position="0 0 -1"
 		 material ="color: black"

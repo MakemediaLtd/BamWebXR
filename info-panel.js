@@ -36,6 +36,8 @@ AFRAME.registerComponent('info-panel', {
 	
 	this.scene = document.querySelector('a-scene');
 	
+	this.cursor = document.querySelector('#cursor');
+	this.camRig = document.querySelector('#camRigHelper');
 	
 	// Need to set RAY ORIGIN to enity if we are in VR
 	
@@ -195,6 +197,12 @@ AFRAME.registerComponent('info-panel', {
 	this.onDesktopMode();
 	//this.onVRMode();
 	
+	if(AFRAME.utils.device.isMobile() === true) {
+		
+		console.log("is moblie");
+		
+	}
+	
   },
 
   onMenuButtonClick: function (evt) {
@@ -251,36 +259,56 @@ AFRAME.registerComponent('info-panel', {
   onDesktopMode: function()
   {
 	  console.log("desktop mode");
-	  var cursor = document.querySelector('#cursor');
-	  cursor.setAttribute('cursor', 'rayOrigin', 'mouse');
-	  cursor.setAttribute('cursor','fuse', 'false');
-	  cursor.object3D.visible = false;
-	//	cursor="rayOrigin: entity; fuse: true; fuseTimeout: 600"	
-	
-	 var camRig = document.querySelector('#camRigHelper');
 	  
-	 camRig.object3D.position.set(
+	  	 var mouse_c = document.querySelector('#cursor_mouse');
+	 
+	 mouse_c.setAttribute('raycaster', 'enabled', true);
+	  
+	  var cursor_gaze = document.querySelector('#cursor');
+	 
+	   cursor_gaze.setAttribute('raycaster', 'enabled', false);
+	  cursor_gaze.object3D.visible = false;
+	  
+	
+	
+	  
+	
+	 this.camRig.object3D.position.set(
 					0,
 					0,
 					0,
 				); 
+				
+			
+				
+		
 	  
   },
     onVRMode: function()
   {
 	  console.log("vr mode mode");
-	  var cursor = document.querySelector('#cursor');
-	  cursor.setAttribute('cursor', 'rayOrigin', 'entity');
-	  cursor.setAttribute('cursor','fuse', 'true');
-	  cursor.object3D.visible = true;
 	  
-	  var camRig = document.querySelector('#camRigHelper');
+	 var mouse_c = document.querySelector('#cursor_mouse');
+	 
+	 mouse_c.setAttribute('raycaster', 'enabled', false);
 	  
-	 camRig.object3D.position.set(
+	  var cursor_gaze = document.querySelector('#cursor');
+	 
+	   cursor_gaze.setAttribute('raycaster', 'enabled', true);
+	  cursor_gaze.object3D.visible = true;
+	  
+	
+	this.cursor.object3D.visible = true;
+	
+	  
+	 this.camRig.object3D.position.set(
 					0,
 					1.6,
 					0,
 				); 
+			
+
+			
   },
   
   onPlay360Click: function(evt){
