@@ -15,7 +15,7 @@ AFRAME.registerComponent('info-panel', {
 	
 	this.UIMenu = document.querySelector('#menu');
 	this.InfoPanel = document.querySelector('#infoPanel');
-	this.closeButton = document.querySelector('#closeButton');
+
 	
 	this.Cam = document.querySelector('#cam');
 	this.wrapScene = document.querySelector('#wrapScene');
@@ -143,7 +143,7 @@ AFRAME.registerComponent('info-panel', {
 	};
 
     this.onMenuButtonClick = this.onMenuButtonClick.bind(this);
-    this.onCloseClick = this.onCloseClick.bind(this);
+  
 	this.onPlay360Click = this.onPlay360Click.bind(this);
 	this.on360VideoEnded = this.on360VideoEnded.bind(this);
 	this.GoBackToMainMenu = this.GoBackToMainMenu.bind(this);
@@ -160,7 +160,7 @@ AFRAME.registerComponent('info-panel', {
 	this.scene.addEventListener('enter-vr', this.OnEnteredVRMode);
 	this.scene.addEventListener('exit-vr',this.OnExitVRMode);
 	
-	this.closeButton.addEventListener('click', this.onCloseClick);
+	
 	
 	this._360VideoPlayer.addEventListener('materialvideoended', this.on360VideoEnded);
 	
@@ -247,16 +247,6 @@ AFRAME.registerComponent('info-panel', {
 	
   },
 
-
-// change this to a 'close' button?
-
-  onCloseClick: function (evt) {
-   // this.backgroundEl.object3D.scale.set(0.001, 0.001, 0.001);
-    this.el.object3D.scale.set(0.001, 0.001, 0.001);
-    this.el.object3D.visible = false;
-    this.fadeBackgroundEl.object3D.visible = false;
-	
-  },
   
   onDesktopMode: function()
   {
@@ -375,7 +365,7 @@ AFRAME.registerComponent('info-panel', {
 		this.playerMenuNextVideo.setAttribute('class', "");
 		
 		this.playerMenuReturnToMainMenu.object3D.position.set(
-					0.155,
+					0,
 					this.playerMenuReturnToMainMenu.object3D.position.y,
 					this.playerMenuReturnToMainMenu.object3D.position.z,
 				); 
@@ -451,7 +441,7 @@ AFRAME.registerComponent('info-panel', {
 		var camRotY =  this.Cam.object3D.rotation.y;
 		
 			this.playerMenuReturnToMainMenu.object3D.position.set(
-					0,
+					-0.35,
 					this.playerMenuReturnToMainMenu.object3D.position.y,
 					this.playerMenuReturnToMainMenu.object3D.position.z,
 				); 
@@ -468,7 +458,8 @@ AFRAME.registerComponent('info-panel', {
 					camRotY,
 					0,
 				);
-		
+	
+	
 	  
   },
   
@@ -491,20 +482,23 @@ AFRAME.registerComponent('info-panel', {
 	//console.log("ticking...?");
 	
 	
-	var camRotY =  this.Cam.object3D.rotation.y;
+	
 	this.playerMenu.object3D.rotation.set(
 					0,
-					this.ease(camRotY),
+					this.ease(),
 					0,
 				);
+				
+	this.playerMenuReturnToMainMenu.object3D.lookAt(this.Cam.object3D.position);
+	this.playerMenuNextVideo.object3D.lookAt(this.Cam.object3D.position);
 	
-	this.MenuYRotLast = camRotY;
+	
 	
   },
   
-  ease: function (t) { 
+  ease: function () { 
   
-  return  THREE.MathUtils.damp(this.Cam.object3D.rotation.y, this.MenuYRotLast, 0.001, 0.01);
+  return  THREE.MathUtils.damp(this.playerMenu.object3D.rotation.y, this.Cam.object3D.rotation.y, 1, 0.01);
   
   }
   

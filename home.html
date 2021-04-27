@@ -84,21 +84,29 @@
       </a-entity>
 	  </a-entity>
 	  
-	  	<a-entity 
+	  
+	
+
+      <!-- Hand controls -->
+      <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: .raycastable"></a-entity>
+      <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: .raycastable" line="color: #118A7E"></a-entity>
+
+	  <!-- Video menu -->
+			<a-entity 
 		id="PlayerMenu"
-		position="-0.259 1.6 0"
+		position="0 1.6 0"
 		>
 		<a-entity 
 			<
 		id="PlayerMenuReturnToMainMenu"
-		geometry="primitive: plane; width: 0.3; height: 0.125"
-		material="color: white"
-		position="0 -0.4 -1"
+		geometry="primitive: plane; width: 0.6; height: 0.125"
+		material="color:#90b069; shader: flat; src: UI/playeMenuButton.png;  blending: additive; alphaTest: 0.6"
+		position="-0.35 -0.4 -1.1"
 		animation__scale="property: scale; to: 1.2 1.2 1.2; dur: 200; startEvents: mouseenter"
         animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave"
         class="raycastable"
 		> 
-		<a-entity text="value: Return to Menu; color: black; align: center; width: 0.8;  "></a-entity>
+		<a-entity text="value: Return to Menu; color: white; align: center; width: 0.8;  "></a-entity>
 		
 		
 		</a-entity>
@@ -107,31 +115,28 @@
 		<a-entity 
 		
 		id="PlayerMenuNextVideo"
-		geometry="primitive: plane; width: 0.3; height: 0.125"
-		material="color: white"
-		position="0.35 -0.4 -1"
+		geometry="primitive: plane; width: 0.6; height: 0.125"
+		material="color: #90b069; shader: flat; src: UI/playeMenuButton.png; blending: additive; alphaTest: 0.6"
+		position="0.35 -0.4 -1.1"
 		animation__scale="property: scale; to: 1.2 1.2 1.2; dur: 200; startEvents: mouseenter"
         animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave"
         class="raycastable"
 		
 		> 
-		<a-entity text="value: Play Next Video; color: black; align: center; width: 0.8;  "></a-entity>
+		<a-entity text="value: Play Next Video; color: white; align: center; width: 0.8;  "></a-entity>
 		
 		</a-entity>
 		
 		</a-entity>
-	   
-	
-
-      <!-- Hand controls -->
-      <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: .raycastable"></a-entity>
-      <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: .raycastable" line="color: #118A7E"></a-entity>
-
-
+	   <!-- Video menu -->
+	 
 
  <a-entity id = "wrapScene">
 
-      <a-entity id="ui" position="0 1.6 -2.5">
+		
+	
+
+      <a-entity id="ui" position="0.2 1.6 -2.5">
         <!-- Poster menu -->
 		
         <a-entity id="menu">
@@ -153,7 +158,7 @@
 			
 			
 			<a-entity id="TidwayBTN" mixin="frame" class="raycastable menu-button">
-				<a-entity text="value: Tidway; color: white; align: center; width: 2;  "></a-entity>
+				<a-entity text="value: Tideway; color: white; align: center; width: 2;  "></a-entity>
 			</a-entity>
 			
 	
@@ -189,7 +194,7 @@
           material="color: white; shader: flat; transparent: false;">
 		  	<a-entity  position="0 0.5 0" text="shader: msdf; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; value: Welcome to BAM Nuttall; color: white; align: center; width: 3" class="raycastable play360-button"></a-entity>
 			<a-entity position="0 0 0" text="shader: msdf; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; value: To navigate through the menus, click or direct your gaze towards a button or icon to launch; color: white; align: center; width: 2.3" class="raycastable play360-button"></a-entity>
-			<a-entity position="0 -0.7 0" text="shader: msdf; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; value: To navigate through the menus, click or direct your gaze towards a button or icon to launch; color: white; align: center; width: 2.3" class="raycastable play360-button"></a-entity>
+			<a-entity position="0 -0.7 0" text="shader: msdf; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; value: Select one of the projects below to begin; color: white; align: center; width: 2.3" class="raycastable play360-button"></a-entity>
 		
 		  </a-entity>
 		 
@@ -204,7 +209,7 @@
           geometry="primitive: plane; width: 4.36; height: 1.8"
           material="color: white; shader: flat; transparent: false">
 		  
-		 
+			
 		  
           <a-entity id="MovieImage" mixin="movieImage" visible="true"></a-entity>
            <a-entity id="movieTitle"
@@ -223,8 +228,10 @@
 			position="2 -0.746 0.1"
 			animation__scale="property: scale; to: 1.2 1.2 1.2; dur: 200; startEvents: mouseenter"
 			animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave"
+			text=" shader: msdf; value: Play 360; color: black; align: center; width: 1.7;" 
+			class="raycastable play360-button">
 			
-			<a-entity text="shader: msdf; value: Play 360; color: black; align: center; width: 1.7;" class="raycastable play360-button"></a-entity>
+			</a-entity>
 			
 			 
 		<a-entity id= "keyFacts" position="-2.05 -0.8 0.001"  layout="type: box; margin: 0.18; align: center; reverse: true">
@@ -260,18 +267,22 @@
 			
 			</a-entity>
 			
-		</a-entity>
+		
+			</a-entity>
+			
+			
+			<a-entity id= "bamlogo"
+			position = "-1.6 1.2 0.1"
+			geometry="primitive: plane; width: 1; height: 0.4"
+			material = "color: white; shader: flat; src: UI/BamNuttallLogoWhite.png; opacity: 0.99" 
+			> </a-entity>
+			
+			
+			
+			
 			</a-entity>
 		   
-		   <a-entity id="closeButton"
-			geometry="primitive: circle; radius: 0.1"
-			material="color: white"
-			visible = "false"
-			position="-0.9 0.9 0.1"
-			animation__scale="property: scale; to: 1.2 1.2 1.2; dur: 200; startEvents: mouseenter"
-			animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave"
-			
-				<a-entity text="value: X; color: black; align: center; width: 4" ></a-entity>
+		  
 		
 		  
 			</a-entity>
