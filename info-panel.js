@@ -120,12 +120,12 @@ AFRAME.registerComponent('info-panel', {
 			description: 'BMJV, a Joint Venture between BAM Nuttall and Mott MacDonald were awarded the contract for the design and construction of flood defence works including the movable gate across the River Haven protecting over 14,000 homes.  Boston has been susceptible to flooding with a significant tidal event in 2013 causing damage to 100s of homes.  The new barrier will protect the town from tidal surge flooding for years to come.',
 			vidSrc: 
 			[
-				//'output',
-				'Boston_01_2mbits',
-				//'output'
-				//'output',
-				'Boston_02_2mbits',
-				'Boston_03_2mbits'
+				'output',
+				//'Boston_01_2mbits',
+				'output',
+				'output'
+				//'Boston_02_2mbits',
+				//'Boston_03_2mbits'
 			],
 			bannerImg: 'ProjectImages/Boston Barrier.jpg',
 			_360Img: 'Boston_03_155408',
@@ -189,7 +189,7 @@ AFRAME.registerComponent('info-panel', {
     fadeBackgroundEl.getObject3D('mesh').material.depthTest = false;
 	
 	
-  this.playerMenu.setAttribute('visible', false);
+  this.playerMenu.setAttribute('visible', true);
     this.playerMenuNextVideo.setAttribute('class', "");
 	  this.playerMenuReturnToMainMenu.setAttribute('class', "");
 	  
@@ -264,12 +264,23 @@ AFRAME.registerComponent('info-panel', {
 	
 	
 	  
-	
+	/*
 	 this.camRig.object3D.position.set(
 					0,
 					0,
 					0,
 				); 
+		*/		
+				
+		var worldShift = document.querySelector("#worldShift");
+		
+		
+		worldShift.object3D.position.set(
+					0,
+					0,
+					0,
+				); 
+		
 				
 			
 				
@@ -292,13 +303,24 @@ AFRAME.registerComponent('info-panel', {
 	
 	this.cursor.object3D.visible = true;
 	
+	/*
 	  
 	 this.camRig.object3D.position.set(
 					0,
 					1.6,
 					0,
 				); 
-			
+	
+*/
+
+	var worldShift = document.querySelector("#worldShift");
+		
+		
+		worldShift.object3D.position.set(
+					0,
+					worldShift.object3D.position.y -1.6,
+					0,
+				); 
 
 			
   },
