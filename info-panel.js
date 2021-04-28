@@ -141,6 +141,34 @@ AFRAME.registerComponent('info-panel', {
 		}
 		
 	};
+	
+	this.VideoIsPlaying = false;
+	this.SubtitlesText = document.querySelector('#subtitleText');
+	this.CurrentVideoPlaying;
+	
+	this.Subtitles = {
+				Airport_01_2mbits: {			
+					line_0:{					
+						time: 5.0,
+						line: 'Ahead and looking east you can see the original dock basin.'
+					},
+					line_1:{
+						
+						time: 10,
+						line: 'We are extending the airport over the water which is around 11 metres deep using a suspended slab design.'
+					},
+					line_2:{
+						
+						time: 10,
+						line: 'To the right, we can see the floating platform carrying all the piling equipment.'
+					}
+				}
+				
+			}
+		
+
+
+	
 
     this.onMenuButtonClick = this.onMenuButtonClick.bind(this);
   
@@ -403,6 +431,8 @@ AFRAME.registerComponent('info-panel', {
 			video.currentTime = 0;
 			video.play();
 			
+			this.CurrentVideoPlaying = video;
+			
 		  
   },
   
@@ -448,6 +478,7 @@ AFRAME.registerComponent('info-panel', {
 	  
 	   this.currentSectionVideoIndex = 0;
 	   
+	  this.VideoIsPlaying = false;
 	  
 	    //this._360VideoPlayer.object3D.visible = false;
 		
@@ -503,7 +534,7 @@ AFRAME.registerComponent('info-panel', {
   
 	//console.log("ticking...?");
 	
-	
+//	console.log(THREE.Clock.getDelta);
 	
 	this.playerMenu.object3D.rotation.set(
 					0,
@@ -514,13 +545,16 @@ AFRAME.registerComponent('info-panel', {
 	this.playerMenuReturnToMainMenu.object3D.lookAt(this.Cam.object3D.position);
 	this.playerMenuNextVideo.object3D.lookAt(this.Cam.object3D.position);
 	
-	
+	if(this.VideoIsPlaying)
+	{
+		// subtitles 
+	}
 	
   },
   
   ease: function () { 
   
-  console.log(Math.abs(this.playerMenu.object3D.rotation.y - this.Cam.object3D.rotation.y));
+  //console.log(Math.abs(this.playerMenu.object3D.rotation.y - this.Cam.object3D.rotation.y));
   
   if(Math.abs(this.playerMenu.object3D.rotation.y - this.Cam.object3D.rotation.y) > 0.4)
   {
