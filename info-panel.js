@@ -147,22 +147,14 @@ AFRAME.registerComponent('info-panel', {
 	this.CurrentVideoPlaying;
 	
 	this.Subtitles = {
-				Airport_01_2mbits: {			
-					line_0:{					
-						time: 5.0,
-						line: 'Ahead and looking east you can see the original dock basin.'
-					},
-					line_1:{
-						
-						time: 10,
-						line: 'We are extending the airport over the water which is around 11 metres deep using a suspended slab design.'
-					},
-					line_2:{
-						
-						time: 10,
-						line: 'To the right, we can see the floating platform carrying all the piling equipment.'
-					}
-				}
+				Airport_01_2mbits:
+				[				
+									
+					[5.0, 'Ahead and looking east you can see the original dock basin.'],
+					[10, 'We are extending the airport over the water which is around 11 metres deep using a suspended slab design.'],
+					[20, ' '],
+					[20, 'To the right, we can see the floating platform carrying all the piling equipment.']
+				]
 				
 			}
 		
@@ -232,6 +224,9 @@ AFRAME.registerComponent('info-panel', {
 		console.log("is moblie");
 		
 	}
+	
+	
+	
 	
   },
 
@@ -424,16 +419,43 @@ AFRAME.registerComponent('info-panel', {
 	   var id = this.currentSection.vidSrc[this.currentSectionVideoIndex];
 	
 	 
-			this._360VideoPlayer.setAttribute('material','src', "#"+id);
+		this._360VideoPlayer.setAttribute('material','src', "#"+id);
 	 
-			var video = document.querySelector("#"+id);
+		var video = document.querySelector("#"+id);
 			
-			video.currentTime = 0;
-			video.play();
+		video.currentTime = 0;
+		video.play();
 			
-			this.CurrentVideoPlaying = video;
+		this.CurrentVideoPlaying = video;
+		
+	
+		// subtitles 
+		
+		var subtitlesBlock = this.Subtitles[this.CurrentVideoPlaying.id];
+		
+		console.log(subtitlesBlock.length);
+		
+			for (var i = 0; i < subtitlesBlock.length; ++i) {
+				
+				console.log(subtitlesBlock[i]);
+				
+				setTimeout(this.setSubtitles, subtitlesBlock[i][0] * 1000, subtitlesBlock[i][1]);
+				
+		}
+	
+  },
 			
 		  
+  
+  
+  setSubtitles: function(sub)
+  {
+
+	
+	this.SubtitleText.setAttribute('text', 'value', sub);
+	
+	  
+	  
   },
   
   playNextVideo: function()
@@ -545,12 +567,10 @@ AFRAME.registerComponent('info-panel', {
 	this.playerMenuReturnToMainMenu.object3D.lookAt(this.Cam.object3D.position);
 	this.playerMenuNextVideo.object3D.lookAt(this.Cam.object3D.position);
 	
-	if(this.VideoIsPlaying)
-	{
-		// subtitles 
-	}
+	
 	
   },
+  
   
   ease: function () { 
   
