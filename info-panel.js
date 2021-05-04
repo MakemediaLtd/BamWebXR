@@ -144,7 +144,10 @@ AFRAME.registerComponent('info-panel', {
 	
 	this.VideoIsPlaying = false;
 	this.SubtitlesText = document.querySelector('#subtitleText');
+	this.SubtitlesText.setAttribute('text', 'value', '');
 	this.CurrentVideoPlaying;
+	this.SubtitleCounter = 0;
+	this.SubtitleIndex = 0;
 	
 	this.Subtitles = {
 				Airport_01_2mbits:
@@ -152,8 +155,28 @@ AFRAME.registerComponent('info-panel', {
 									
 					[5.0, 'Ahead and looking east you can see the original dock basin.'],
 					[10, 'We are extending the airport over the water which is around 11 metres deep using a suspended slab design.'],
-					[20, ' '],
-					[20, 'To the right, we can see the floating platform carrying all the piling equipment.']
+					[17, ' '],
+					[20, 'To the right, we can see the floating platform carrying all the piling equipment.'],
+					[26, 'In front of the orange crane, lying on the platform are large steel tubes called pile casings.'],
+					[34, 'These sit alongside silos for storing concrete mix materials,'],
+					[39, 'as well as other cranes and rigs which are being used for the various piling operations.'],
+					[45.5, ''],
+					[49.8, 'Looking left you can see a plane taking off showing just how close we are working to the runway.'],
+					[55., ' ']
+				],
+				Airport_02_2mbits:
+				[				
+									
+					[5.0, 'Ahead and looking east you can see the original dock basin.'],
+					[10, 'We are extending the airport over the water which is around 11 metres deep using a suspended slab design.'],
+					[17, ' '],
+					[20, 'To the right, we can see the floating platform carrying all the piling equipment.'],
+					[26, 'In front of the orange crane, lying on the platform are large steel tubes called pile casings.'],
+					[34, 'These sit alongside silos for storing concrete mix materials,'],
+					[39, 'as well as other cranes and rigs which are being used for the various piling operations.'],
+					[45.5, ''],
+					[49.8, 'Looking left you can see a plane taking off showing just how close we are working to the runway.'],
+					[55., ' ']
 				]
 				
 			}
@@ -371,6 +394,8 @@ AFRAME.registerComponent('info-panel', {
 	  this.UIMenu.object3D.scale.set(0.001, 0.001, 0.001);
 	  this.InfoPanel.object3D.visible = false;
 	     this.el.object3D.scale.set(0.001, 0.001, 0.001);
+		 
+	
 	
 	  
   },
@@ -431,17 +456,17 @@ AFRAME.registerComponent('info-panel', {
 	
 		// subtitles 
 		
-		var subtitlesBlock = this.Subtitles[this.CurrentVideoPlaying.id];
+	//	var subtitlesBlock = this.Subtitles[this.CurrentVideoPlaying.id];
 		
-		console.log(subtitlesBlock.length);
+	//	console.log(subtitlesBlock.length);
 		
-			for (var i = 0; i < subtitlesBlock.length; ++i) {
+			//for (var i = 0; i < subtitlesBlock.length; ++i) {
 				
-				console.log(subtitlesBlock[i]);
+		//	console.log(subtitlesBlock[i]);
 				
-				setTimeout(this.setSubtitles, subtitlesBlock[i][0] * 1000, subtitlesBlock[i][1]);
+			//	setTimeout(this.setSubtitles, subtitlesBlock[i][0] * 1000, subtitlesBlock[i][1]);
 				
-		}
+		//}
 	
   },
 			
@@ -475,14 +500,16 @@ AFRAME.registerComponent('info-panel', {
   {
 	  console.log("Stop current video");
 	  
-	   var id = this.currentSection.vidSrc[this.currentSectionVideoIndex];
+	  // var id = this.currentSection.vidSrc[this.currentSectionVideoIndex];
 	
 	 
-			this._360VideoPlayer.setAttribute('material','src', "#"+id);
+		//	this._360VideoPlayer.setAttribute('material','src', "#"+id);
 	 
-			var video = document.querySelector("#"+id);
+		//	var video = document.querySelector("#"+id);
 			
-			video.pause();
+	//		video.pause();
+	
+	this.CurrentVideoPlaying.pause();
 		  
   },
   
@@ -511,7 +538,9 @@ AFRAME.registerComponent('info-panel', {
 		this.welcomePanel.object3D.visible = true;
 		  
 		this.UIMenu.setAttribute('visible',true);
-		  this.UIMenu.object3D.scale.set(1, 1, 1);
+		 this.UIMenu.object3D.scale.set(1, 1, 1);
+		  
+		 this.el.object3D.scale.set(1, 1, 1);
 	  
 		var camRotY =  this.Cam.object3D.rotation.y;
 		
@@ -567,6 +596,60 @@ AFRAME.registerComponent('info-panel', {
 	this.playerMenuReturnToMainMenu.object3D.lookAt(this.Cam.object3D.position);
 	this.playerMenuNextVideo.object3D.lookAt(this.Cam.object3D.position);
 	
+	if(this.CheckIfPlayingVideo())
+	{
+		//console.log("Is playing...!");
+		
+		var SubtitlesBlock = this.Subtitles[this.CurrentVideoPlaying.id];
+		
+		if(SubtitlesBlock === null || typeof SubtitlesBlock === 'undefined')
+			return;
+		
+		var playTime = this.CurrentVideoPlaying.currentTime;
+		
+		for (var i = 0; i < SubtitlesBlock.length; ++i) {
+			
+			if(Math.abs(playTime -  SubtitlesBlock[i][0]) > 0.1 && Math.abs(playTime -  SubtitlesBlock[i][0]) < 0.5 )
+			{
+				
+				
+				
+				this.SubtitlesText.setAttribute('text', 'value', SubtitlesBlock[i][1]);
+				console.log(SubtitlesBlock[i][1]);
+			}
+			
+		}
+		
+		
+		
+	}
+	
+
+	
+  },
+  
+  CheckIfPlayingVideo: function()
+  {
+	
+	if(this.CurrentVideoPlaying !== null && typeof this.CurrentVideoPlaying !== 'undefined')
+	{
+		if(this.CurrentVideoPlaying.currentTime > 0 && 
+		!this.CurrentVideoPlaying.paused &&
+		!this.CurrentVideoPlaying.ended && 
+		this.CurrentVideoPlaying.readyState > 2)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	else
+	{
+		return false;
+	}		
+	 
 	
 	
   },
