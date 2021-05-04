@@ -145,6 +145,7 @@ AFRAME.registerComponent('info-panel', {
 	this.VideoIsPlaying = false;
 	this.SubtitlesText = document.querySelector('#subtitleText');
 	this.SubtitlesText.setAttribute('text', 'value', '');
+	this.SubtitlesText.object3D.frustumCulled = false;
 	this.CurrentVideoPlaying;
 	this.SubtitleCounter = 0;
 	this.SubtitleIndex = 0;
@@ -167,16 +168,16 @@ AFRAME.registerComponent('info-panel', {
 				Airport_02_2mbits:
 				[				
 									
-					[5.0, 'Ahead and looking east you can see the original dock basin.'],
-					[10, 'We are extending the airport over the water which is around 11 metres deep using a suspended slab design.'],
-					[17, ' '],
-					[20, 'To the right, we can see the floating platform carrying all the piling equipment.'],
-					[26, 'In front of the orange crane, lying on the platform are large steel tubes called pile casings.'],
-					[34, 'These sit alongside silos for storing concrete mix materials,'],
-					[39, 'as well as other cranes and rigs which are being used for the various piling operations.'],
-					[45.5, ''],
-					[49.8, 'Looking left you can see a plane taking off showing just how close we are working to the runway.'],
-					[55., ' ']
+					[13.8, 'You are now standing on precast concrete slabs which form the suspended deck.'],
+					[20.0, 'In front and slightly to the left is the floating work platform, where the piling operation is being carried out.'],
+					[27.3, 'The pile casing, a large steel tube, is driven down through the base of the dock into the clay. '],
+					[34.7, 'The activity you can see now is the piling rig boring clay from within the steel casing.'],
+					[41.7, 'Once complete this will be filled with concrete to form a concrete pile foundation to support the airport extension.'],
+					[50, ' '],
+					[64, 'Behind, you can see we have reinforced the precast slabs with steel bars, also known as Rebar.'],
+					[71.5, 'Concrete will be poured over the reinforcement to form the final surface.'],
+					[77, ' ']
+					
 				]
 				
 			}
@@ -487,6 +488,8 @@ AFRAME.registerComponent('info-panel', {
   {
 	  console.log("Play next video");
 	  
+	  this.SubtitlesText.setAttribute()
+	  
 	  this.stopCurrentVideo();
 	  
 	  this.currentSectionVideoIndex ++;
@@ -595,6 +598,7 @@ AFRAME.registerComponent('info-panel', {
 				
 	this.playerMenuReturnToMainMenu.object3D.lookAt(this.Cam.object3D.position);
 	this.playerMenuNextVideo.object3D.lookAt(this.Cam.object3D.position);
+	this.SubtitlesText.object3D.lookAt(this.Cam.object3D.position);
 	
 	if(this.CheckIfPlayingVideo())
 	{
