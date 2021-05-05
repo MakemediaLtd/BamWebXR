@@ -144,7 +144,7 @@ AFRAME.registerComponent('info-panel', {
 	
 	this.VideoIsPlaying = false;
 	this.SubtitlesText = document.querySelector('#subtitleText');
-	this.SubtitlesText.setAttribute('text', 'value', '');
+	this.SubtitlesText.setAttribute('visible', false);
 	this.SubtitlesText.object3D.frustumCulled = false;
 	this.CurrentVideoPlaying;
 	this.SubtitleCounter = 0;
@@ -167,7 +167,7 @@ AFRAME.registerComponent('info-panel', {
 				],
 				Airport_02_2mbits:
 				[				
-									
+								 	
 					[13.8, 'You are now standing on precast concrete slabs which form the suspended deck.'],
 					[20.0, 'In front and slightly to the left is the floating work platform, where the piling operation is being carried out.'],
 					[27.3, 'The pile casing, a large steel tube, is driven down through the base of the dock into the clay. '],
@@ -178,7 +178,170 @@ AFRAME.registerComponent('info-panel', {
 					[71.5, 'Concrete will be poured over the reinforcement to form the final surface.'],
 					[77, ' ']
 					
+				],
+				Airport_03_2mbits:
+				[				
+									
+					[3.5, 'You are standing on an area of suspended concrete deck, constructed by us.'],
+					[10, 'You can see the crane on your left, is lifting a precast concrete section which has been delivered to site.'],
+					[17, ' '],
+					[21, 'These are manufactured off site in a factory environment,'],
+					[24.8, 'where it’s easier to reproduce consistent shape segments.'],
+					[30, 'This also helps reduce our traffic movements with concrete trucks in and around the local area.'],
+					[37, 'These precast sections bridge the gap between the concrete pile foundations'],
+					[41.7, 'and supports the installed slab members to form the deck.'],
+					[49.2, 'The grey building behind you is the existing airport terminal building.'],
+					[55, ' ']
+					
+				],
+				Airport_04_2mbits:
+				[
+				
+					[14.8, 'Looking straight ahead, is an area of the taxiway which has been concreted.'],
+					[22.8, 'To the right, we can see an area where reinforcement steel has been fixed and will be concreted next.'],
+					[31, 'To the left looking back to the existing terminal'],
+					[34.2, 'you can appreciate how much of the deck has already been completed.'],
+					[39, ' '],
+					[42.7, 'To the right you can see the area we have constructed'],
+					[45.7, 'using the concrete pile foundations and precast members.'],
+					[50.2, ' '],
+					[56.7, 'The final reinforcement steel is being fixed ready to be concreted.'],
+					[62, ' ']
+				
+				],
+				Airport_05_2mbits:
+				[
+				
+					[3.3, 'Adjacent to the existing terminal building we are concreting a smaller section of the deck.'],
+					[10, ' '],
+					[15, 'The crane is being used in this instance to lift and pour concrete using a container called a skip.'],
+					[23, 'The larger areas close to the runway will be concreted using a pump system.'],
+					[28.5, 'Behind you, are several scaffold frames used to span the finished concrete areas'],
+					[33.7, 'and protect the finish from the elements allowing the concrete to set and reach sufficient strength.'],
+					[42, '']
+				
+				],
+				Boston_01_2mbits:
+				[
+					[3.0, 'Below is the new Boston Barrier. The flood gate is installed and is locked in a maintenance position.'],
+					[10, 'Looking left we have an excavator on a barge dredging the river in preparation for scour protection'],
+					[17, 'which is downstream of the new barrier and river channel.'],
+					[20.5, 'Looking right upstream, and behind us are views towards the town of Boston.'],
+					[28, '']
+				
+					
+				],
+				Boston_02_2mbits:
+				[
+					[1, 'Between you and the river is one of the two twin wall cofferdams.'],
+					[6.5, 'The two rows of steel sheet piles with earth infill enable the whole barrier installation and'],
+					[12, 'concrete works to be carried out in a temporary dry dock.'],
+					[16.5, 'Further left, you can see down into the newly constructed river channel and the second cofferdam beyond.'],
+					[23.5, 'When the works are complete the cofferdams will be removed and'],
+					[26.5, 'the gate will normally sit in the curved recess forming the riverbed.'],
+					[31, 'The river will then permanently flow through the new concrete channel.'],
+					[38, ' ']	
+				],
+				Boston_03_2mbits:
+				[
+					[6.8, 'We are down in the new river channel, ahead of us is the cofferdam'],
+					[11, 'holding back both the river and tidal range of the sea.'],
+					[14.3, 'Turn around and you can see another similar cofferdam on the upstream side.'],
+					[21, 'To both right and left we have shuttering joiners working in Mobile Elevated Work Platforms.'],
+					[27.5, 'They are installing the curved steel sealing plates.'],
+					[31.5, 'These will be concreted in place to provide a tight seal along'],
+					[35, 'each side of the barrier when it is raised in flood conditions.'],
+					[40, 'Above, you can see the barrier, locked overhead while work progresses.'],
+					[45.5, 'When deployed it will rise from the recess up to a vertical position to hold back tidal surges'],
+					[52.3, 'and protect 100’s of homes and businesses in and around Boston.'],
+					[58, ' ']	
+				],
+				HPC_01_2mbits:
+				[
+					[3, 'This is a bird’s eye view of Hinkley Point C construction site.'],
+					[8, 'This view is captured from the top of a crane jib allowing you to see the expanse of the work.'],
+					[15.8, 'Our involvement here is in a Joint Venture with Kier, another large UK contractor.'],
+					[22, ' Our contract is to carry out excavation works, stabilisation of excavations and construct roads and services.'],
+					[32.3, 'In front you can see the circular footprint of one of the nuclear islands where a reactor will eventually sit.'],
+					[40.3, 'Behind, you can view across the site and out into the Bristol Channel.'],
+					[47.8, 'At its peak we employed a workforce of over 2000 out on site'],
+					[53, 'as well as 550 management and support staff in the office complex.'],
+					[59, ' ']
+						
+				],
+				HPC_02_2mbits:
+				[
+					[4.3, 'In front we can see is a lifting team carrying out a routine lift'],
+					[8.3, 'using one of the many tower cranes on site, look up and you will see which one.'],
+					[14, ' '],
+					[17.3, 'Only specially qualified people can carry out lifting operations on our sites.'],
+					[23.5, ' '],
+					[40.8, 'Behind you is arguably the biggest land-based crane in the world, it is nicknamed ‘Big Carl’.'],
+					[47.3, 'Big Carl is rated at 5000 tonnes which means it is capable of theoretically lifting'],
+					[53.5, '5000 tonnes at minimum radius of 40m from its centre.'],
+					[59.8, 'We use big cranes like this when we need to lift'],
+					[62.5, 'very heavy items at some distance from the crane centre.'],
+					[68, 'Big Carl can lift 2000 tonnes at a distance of 100 metres from its centre.'],
+					[75, ' ']
+						
+				],
+				HPC_03_2mbits:
+				[
+					[3.5, 'Another view of Big Carl straight ahead.'],
+					[7, ' '],
+					[18.5, 'The whole machine is designed to be transported to and from site by road transport.'],
+					[27, 'It takes over 250 road movements to relocate the crane which is normally based in Belgium.'],
+					[35, ' ']
+					
+						
+				],
+				HPC_04_2mbits:
+				[
+					[2, 'Here you can see an area of excavation we have completed.'],
+					[8.7, 'The whole site comprises of different shaped and profiled excavations like this.'],
+					[15.3, 'In total, we have excavated over 5 million cubic metres of material.'],
+					[21, 'We secure the rock with ground anchors then'],
+					[24, 'spray all the exposed surfaces with concrete to stabilise them for the duration of the work.'],
+					[30.5, ' ']
+					
+						
+				],
+				HPC_05_2mbits:
+				[
+					[3.8, 'Most of the excavation is in rock which must be broken out using hydraulic breakers.'],
+					[10.5, ' '],
+					[13, 'Looking in either direction you can see the stabilised excavation faces that we have now installed.'],
+					[19.5, ' ']
+				
+				],
+				HPC_06_2mbits:
+				[
+					[2.5, 'Each excavation is treated with sprayed concrete to stabilise and make safe for the work which follows.'],
+					[11.5, 'We dig down approximately 2m and then stabilise before further excavation proceeds.'],
+					[19, ' '],
+					[22.5, 'All concrete is batched on site to minimise traffic in the local area.'],
+					[29, ' ']			
+				],
+				HPC_07_2mbits:
+				[
+					[3.5, 'Look ahead you can see the red jib of a concrete pump,'],
+					[7, 'pumping concrete into the excavation to form one of the nuclear new build structures.'],
+					[14.2, ' '],
+					[16.2, 'Materials for concrete are delivered by boat travelling up the Bristol Channel and offloading at a purpose built jetty.'],
+					[24.5, 'Concrete is batched and then transported in truck just the same as if brought in by road.'],
+					[32, ' ']							
+				],
+				Tideway_01_2mbits:
+				[
+					[3.5, 'Look ahead you can see the red jib of a concrete pump,'],
+					[7, 'pumping concrete into the excavation to form one of the nuclear new build structures.'],
+					[14.2, ' '],
+					[16.2, 'Materials for concrete are delivered by boat travelling up the Bristol Channel and offloading at a purpose built jetty.'],
+					[24.5, 'Concrete is batched and then transported in truck just the same as if brought in by road.'],
+					[32, ' ']
+				
 				]
+					
 				
 			}
 		
@@ -248,6 +411,7 @@ AFRAME.registerComponent('info-panel', {
 		console.log("is moblie");
 		
 	}
+	
 	
 	
 	
@@ -488,7 +652,7 @@ AFRAME.registerComponent('info-panel', {
   {
 	  console.log("Play next video");
 	  
-	  this.SubtitlesText.setAttribute()
+	  this.SubtitlesText.setAttribute('text', 'value', ' ');
 	  
 	  this.stopCurrentVideo();
 	  
@@ -613,13 +777,18 @@ AFRAME.registerComponent('info-panel', {
 		
 		for (var i = 0; i < SubtitlesBlock.length; ++i) {
 			
-			if(Math.abs(playTime -  SubtitlesBlock[i][0]) > 0.1 && Math.abs(playTime -  SubtitlesBlock[i][0]) < 0.5 )
+			if(Math.abs(playTime -  SubtitlesBlock[i][0]) > 0.1 && Math.abs(playTime -  SubtitlesBlock[i][0]) < 0.3 )
 			{
 				
 				
+				    this.SubtitlesText.setAttribute('text', 'value', SubtitlesBlock[i][1]);
+					console.log(SubtitlesBlock[i][1]);
 				
-				this.SubtitlesText.setAttribute('text', 'value', SubtitlesBlock[i][1]);
-				console.log(SubtitlesBlock[i][1]);
+				
+					this.SubtitlesText.setAttribute('visible', true);
+					
+				
+				
 			}
 			
 		}
