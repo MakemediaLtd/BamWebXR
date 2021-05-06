@@ -333,14 +333,45 @@ AFRAME.registerComponent('info-panel', {
 				],
 				Tideway_01_2mbits:
 				[
-					[3.5, 'Look ahead you can see the red jib of a concrete pump,'],
-					[7, 'pumping concrete into the excavation to form one of the nuclear new build structures.'],
-					[14.2, ' '],
-					[16.2, 'Materials for concrete are delivered by boat travelling up the Bristol Channel and offloading at a purpose built jetty.'],
-					[24.5, 'Concrete is batched and then transported in truck just the same as if brought in by road.'],
-					[32, ' ']
+					[1, 'This is one of the access shafts on the Thames Tideway super sewer construction.'],
+					[7, 'We are building a tunnel similar to those used for the London Underground,'],
+					[11.5, 'but this tunnel will upgrade the aging Victorian London Sewer system.'],
+					[15.7, 'Look above and you can see a set of tunnel segments being lowered from the surface'],
+					[20.5, 'and being loaded onto the tunnel train.'],
+					[24.5, ' '],
+					[28.7, 'Bolted to the sides of the shaft you can see various pipes and cables to supply'],
+					[33, 'power, water, and ventilation for the construction work.'],
+					[38.5, ' ']
+				
+				],
+				Tideway_01_2mbits:
+				[
+					[1.5, 'Looking right, towards the TBM or Tunnel Boring Machine'],
+					[5, 'you can see the train returning from its delivery to the TBM.'],
+					[10, 'Fixed to the sides of the tunnel are service pipes and ducts.'],
+					[14.5, 'In front and below you can see a narrow-gauge railway and an elevated walkway for pedestrians,'],
+					[21, 'this is how we transport materials to the Tunnel Boring Machine from the access shaft.'],
+					[28, ' ']
+				
+				],
+				Tideway_01_2mbits:
+				[
+					[10, 'You are now inside the TBM, with the boring head behind you.'],
+					[14, ' '],
+					[18.5, 'If you look down, a tunnel lining segment has just been fed through from the train'],
+					[23.3, 'on a conveyor system and picked up by the hydraulic arm.'],
+					[29.5, 'The arm will place the segment in its final position on your right to form a ring.'],
+					[35, 'Once the ring is complete the TBM can advance to make room for the next ring.'],
+					[42, ' '],
+					[90, 'If you look right, the hydraulic rams hold the segments in place'],
+					[95, 'and when the TBM enters boring mode the rams push the boring head forward.'],
+					[103, 'Production is measured by the number of rings installed in a day or week.'],
+					[108.3, 'Depending on conditions this TBM will achieve between 90 and 140 rings per week.'],
+					[116, ' '],
+				
 				
 				]
+				
 					
 				
 			}
