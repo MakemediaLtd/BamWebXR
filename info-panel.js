@@ -344,7 +344,7 @@ AFRAME.registerComponent('info-panel', {
 					[38.5, ' ']
 				
 				],
-				Tideway_01_2mbits:
+				Tideway_02_2mbits:
 				[
 					[1.5, 'Looking right, towards the TBM or Tunnel Boring Machine'],
 					[5, 'you can see the train returning from its delivery to the TBM.'],
@@ -354,7 +354,7 @@ AFRAME.registerComponent('info-panel', {
 					[28, ' ']
 				
 				],
-				Tideway_01_2mbits:
+				Tideway_03_2mbits:
 				[
 					[10, 'You are now inside the TBM, with the boring head behind you.'],
 					[14, ' '],
