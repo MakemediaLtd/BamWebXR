@@ -163,7 +163,7 @@ AFRAME.registerComponent('info-panel', {
 					[39, 'as well as other cranes and rigs which are being used for the various piling operations.'],
 					[45.5, ''],
 					[49.8, 'Looking left you can see a plane taking off showing just how close we are working to the runway.'],
-					[55., ' ']
+					[55, ' ']
 				],
 				Airport_02_2mbits:
 				[				
@@ -453,6 +453,8 @@ AFRAME.registerComponent('info-panel', {
 	  
 	 this.welcomePanel.object3D.visible = false;
 	 this.play360Button.setAttribute('visible', true);
+	 
+		this.play360Button.setAttribute('class', "raycastable");
 	  
     var movieInfo = this.bamXrInfo[evt.currentTarget.id];
 	
@@ -555,14 +557,31 @@ AFRAME.registerComponent('info-panel', {
 	
 */
 
+
 	var worldShift = document.querySelector("#worldShift");
+	
+	var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
 		
-		
+		 // iOS detection from: http://stackoverflow.com/a/9039885/177710
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        
+		console.log("ios");
+    }
+	else
+	{
 		worldShift.object3D.position.set(
 					0,
 					worldShift.object3D.position.y -1.6,
 					0,
 				); 
+	}
+		
+		
+		
+				
+				
+	
 
 			
   },
@@ -681,6 +700,11 @@ AFRAME.registerComponent('info-panel', {
   
   playNextVideo: function()
   {
+	  if(this.CurrentVideoPlaying.readyState != 4)
+	  {
+		  return;
+	  }
+	  
 	  console.log("Play next video");
 	  
 	  this.SubtitlesText.setAttribute('text', 'value', ' ');
@@ -731,7 +755,9 @@ AFRAME.registerComponent('info-panel', {
 		
 		this._360VideoPlayer.setAttribute('material', 'src', "#"+this.bamXrInfo['LondonCityAirportBTN']._360Img);
 	
-		
+		this.play360Button.setAttribute('visible', false);
+		this.play360Button.setAttribute('class', "");
+		 
 		this.InfoPanel.object3D.visible = true;
 		this.welcomePanel.object3D.visible = true;
 		  
