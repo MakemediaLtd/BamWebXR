@@ -445,6 +445,11 @@ AFRAME.registerComponent('info-panel', {
 	
 	
 	
+	this.ShowSubsBTN = document.querySelector('#SubtitlesOnOffBtn');
+	this.setSubtitlesOnOff = this.setSubtitlesOnOff.bind(this);
+	this.ShowSubsBTN.addEventListener('click', this.setSubtitlesOnOff);
+	this.ShowSubtitles = true;
+	
 	
 	
   },
@@ -570,11 +575,21 @@ AFRAME.registerComponent('info-panel', {
     }
 	else
 	{
-		worldShift.object3D.position.set(
+		
+		if(/Quest|Quest 2/.test(userAgent))
+		{
+			console.log("quest");
+		}
+		else
+		{
+				worldShift.object3D.position.set(
 					0,
 					worldShift.object3D.position.y -1.6,
 					0,
 				); 
+		}
+			
+	
 	}
 		
 		
@@ -594,6 +609,8 @@ AFRAME.registerComponent('info-panel', {
 	  this.playerMenu.setAttribute('visible', true);
 	  this.playerMenuNextVideo.setAttribute('class', "raycastable");
 	  this.playerMenuReturnToMainMenu.setAttribute('class', "raycastable");
+	  
+	  this.ShowSubsBTN.setAttribute('class', "");
 	  
 	
 	  console.log(this.currentSection.vidSrc[this.currentSectionVideoIndex]);
@@ -698,6 +715,22 @@ AFRAME.registerComponent('info-panel', {
 	  
   },
   
+  setSubtitlesOnOff: function()
+  {
+	  if(this.ShowSubtitles)
+	  {
+		    this.ShowSubtitles = false;
+			 this.SubtitlesText.setAttribute('visible', false);
+			this.ShowSubsBTN.setAttribute('text', 'value', 'Subtitles: Off');
+	  }
+	  else
+	  {
+		    this.SubtitlesText.setAttribute('visible', true);
+		   this.ShowSubsBTN.setAttribute('text', 'value', 'Subtitles: On');
+	  }
+	
+  },
+  
   playNextVideo: function()
   {
 	  if(this.CurrentVideoPlaying.readyState != 4)
@@ -750,6 +783,8 @@ AFRAME.registerComponent('info-panel', {
 	   this.currentSectionVideoIndex = 0;
 	   
 	  this.VideoIsPlaying = false;
+	  
+	  	  this.ShowSubsBTN.setAttribute('class', "raycastable");
 	  
 	    //this._360VideoPlayer.object3D.visible = false;
 		
@@ -842,7 +877,7 @@ AFRAME.registerComponent('info-panel', {
 					console.log(SubtitlesBlock[i][1]);
 				
 				
-					this.SubtitlesText.setAttribute('visible', true);
+					//this.SubtitlesText.setAttribute('visible', true);
 					
 				
 				

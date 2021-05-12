@@ -87,10 +87,10 @@
 	  
 	
 
-      <!-- Hand controls -->
+      <!-- Hand controls 
       <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: .raycastable"></a-entity>
       <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: .raycastable" line="color: #118A7E"></a-entity>
-
+-->
 <!-- world shift for VR -->
 
 <a-entity id = "worldShift">
@@ -194,6 +194,15 @@
 			-->
 			
 		</a-entity>
+		
+		<a-entity id="SubtitlesOnOffBtn" class = "raycastable"
+		geometry="primitive: plane; width: 1.1; height: 0.25"
+		material="color: #90b069; shader: flat; src: UI/playeMenuButton.png; blending: additive; alphaTest: 0.6"
+		position = "-0.2 -0.5 0"
+		text = "value: Subtitles: On; color: white; align: center; width: 2;"
+		animation__scale="property: scale; to: 1.2 1.2 1.2; dur: 200; startEvents: mouseenter"
+        animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave"
+		> </a-entity>
 		
 		</a-entity>
 
