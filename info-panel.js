@@ -452,6 +452,8 @@ AFRAME.registerComponent('info-panel', {
 	
 	
 	
+	
+	
   },
 
   onMenuButtonClick: function (evt) {
@@ -725,8 +727,9 @@ AFRAME.registerComponent('info-panel', {
 	  }
 	  else
 	  {
-		    this.SubtitlesText.setAttribute('visible', true);
+		   // this.SubtitlesText.setAttribute('visible', true);
 		   this.ShowSubsBTN.setAttribute('text', 'value', 'Subtitles: On');
+		   this.ShowSubtitles = true;
 	  }
 	
   },
@@ -812,7 +815,7 @@ AFRAME.registerComponent('info-panel', {
 	  
 		//console.log(camRotY);
 	 
-
+		this.SubtitlesText.setAttribute('text', 'value', ' ');
 	  
 	  
 	  
@@ -877,8 +880,10 @@ AFRAME.registerComponent('info-panel', {
 					console.log(SubtitlesBlock[i][1]);
 				
 				
-					//this.SubtitlesText.setAttribute('visible', true);
-					
+					if(this.ShowSubtitles)
+					{
+						this.SubtitlesText.setAttribute('visible', true);
+					}
 				
 				
 			}
