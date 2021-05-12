@@ -25,14 +25,14 @@ AFRAME.registerComponent('info-panel', {
 	this.playerMenuReturnToMainMenu = document.querySelector('#PlayerMenuReturnToMainMenu');
 	
 	
-	var PanelBackground  = 'UI/PanelBackground.png';
-	var Play360ButtonBackground = 'UI/PlayButtonBackground.png';
+//	var PanelBackground  = 'UI/PanelBackground.png';
+	//var Play360ButtonBackground = 'UI/PlayButtonBackground.png';
 	
 	this.welcomePanel = document.querySelector('#welcomePanel');
 	
-	this.welcomePanel.setAttribute('material', 'src', PanelBackground);
+	//this.welcomePanel.setAttribute('material', 'src', PanelBackground);
 	
-	this.InfoPanel.setAttribute('material', 'src', PanelBackground);
+	//this.InfoPanel.setAttribute('material', 'src', PanelBackground);
 	
 	this.scene = document.querySelector('a-scene');
 	
@@ -56,7 +56,7 @@ AFRAME.registerComponent('info-panel', {
 				'Airport_05_2mbits'
 				
 			],
-			bannerImg: 'ProjectImages/London-City-Airport-2.jpg',
+			bannerImg: '#London-City-Airport-2IMG',
 			_360Img: 'Airport_04_130446',
 			imgEl: document.querySelector('#MovieImage'),
 			keyFacts:
@@ -77,7 +77,7 @@ AFRAME.registerComponent('info-panel', {
 				'Tideway_02_2mbits',
 				'Tideway_03_2mbits'
 			],
-			bannerImg: 'ProjectImages/TTW.jpg',
+			bannerImg: '#TTWIMG',
 			_360Img: 'Tideway_01_182549',
 			imgEl: document.querySelector('#MovieImage'),
 			keyFacts:
@@ -103,7 +103,7 @@ AFRAME.registerComponent('info-panel', {
 				'HPC_06_2mbits',
 				'HPC_07_2mbits'
 			],
-			bannerImg: 'ProjectImages/hinkley_point.jpg',
+			bannerImg: '#hinkley_pointIMG',
 			_360Img: 'HPC_07_135636',
 			imgEl: document.querySelector('#MovieImage'),
 			keyFacts:
@@ -127,7 +127,7 @@ AFRAME.registerComponent('info-panel', {
 				'Boston_02_2mbits',
 				'Boston_03_2mbits'
 			],
-			bannerImg: 'ProjectImages/Boston Barrier.jpg',
+			bannerImg: '#BostonBarrierIMG',
 			_360Img: 'Boston_03_155408',
 			imgEl: document.querySelector('#MovieImage'),
 			keyFacts:
@@ -392,7 +392,7 @@ AFRAME.registerComponent('info-panel', {
 	
 	this.play360Button = document.querySelector('#play360Button');
 	this.play360Button.addEventListener('click', this.onPlay360Click);
-	this.play360Button.setAttribute('material', 'src',Play360ButtonBackground);
+	//this.play360Button.setAttribute('material', 'src',Play360ButtonBackground);
 	
 	
 	this.scene.addEventListener('enter-vr', this.OnEnteredVRMode);

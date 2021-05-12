@@ -19,6 +19,56 @@
       
       info-message="htmlSrc: #messageText">
       <a-assets>
+	  
+	  
+	  	<img id = "playeMenuButtonIMG" src = "UI/playeMenuButton.png">
+		<img id = "PanelBackgroundIMG" src = "UI/PanelBackground.png">
+		<img id = "PlayButtonBackgroundIMG" src = "UI/PlayButtonBackground.png">
+		<img id = "BamNuttallLogoWhiteIMG" src = "UI/BamNuttallLogoWhite.png">
+		<img id = "BostonBarrierIMG" src = "ProjectImages/Boston Barrier.jpg">
+		<img id = "hinkley_pointIMG" src = "ProjectImages/hinkley_point.jpg">
+		<img id = "TTWIMG" src = "ProjectImages/TTW.jpg">
+		<img id = "London-City-Airport-2IMG" src = "ProjectImages/London-City-Airport-2.jpg">
+		<img id = "poundsIMG" src = "UI/KeyFacts/pounds.png">
+		<img id = "stopwatchIMG" src = "UI/KeyFacts/stopwatch.png">
+		<img id = "craneIMG" src = "UI/KeyFacts/crane.png">
+		<img id = "pinIMG" src = "UI/KeyFacts/pin.png">
+		
+		
+	   
+	    <!--    <video id = "output" crossOrigin = "anonymous" src="Video/BostonBarrier/half2.mp4" width="2048" height="1024" ></video> -->
+		   <video id = "Boston_01_2mbits" crossOrigin = "anonymous" src="Video/BostonBarrier/Boston_01_2mbits_half.mp4" width="2048" height="1024" preload="auto" ></video>
+		   <video id = "Boston_02_2mbits" crossOrigin = "anonymous" src="Video/BostonBarrier/Boston_02_2mbits_half.mp4" width="2048" height="1024" preload="auto" ></video>
+		   <video id = "Boston_03_2mbits" crossOrigin = "anonymous" src="Video/BostonBarrier/Boston_03_2mbits_half.mp4" width="2048" height="1024" preload="auto" ></video>
+				
+		   <video id = "HPC_01_2mbits" crossOrigin = "anonymous" src="Video/HinkleyPointC/HPC_01_2mbits_half.mp4" width="2048" height="1024" preload="auto" ></video>
+		   <video id = "HPC_02_2mbits" crossOrigin = "anonymous" src="Video/HinkleyPointC/HPC_02_2mbits_half.mp4" width="2048" height="1024" preload="auto" ></video>
+		   <video id = "HPC_03_2mbits" crossOrigin = "anonymous" src="Video/HinkleyPointC/HPC_03_2mbits_half.mp4" width="2048" height="1024" preload="auto" ></video>
+		   <video id = "HPC_04_2mbits" crossOrigin = "anonymous" src="Video/HinkleyPointC/HPC_04_2mbits_half.mp4" width="2048" height="1024" preload="auto" ></video>
+		   <video id = "HPC_05_2mbits" crossOrigin = "anonymous" src="Video/HinkleyPointC/HPC_05_2mbits_half.mp4" width="2048" height="1024" preload="auto" ></video>
+		   <video id = "HPC_06_2mbits" crossOrigin = "anonymous" src="Video/HinkleyPointC/HPC_06_2mbits_half.mp4" width="2048" height="1024" preload="auto" ></video>
+		   <video id = "HPC_07_2mbits" crossOrigin = "anonymous" src="Video/HinkleyPointC/HPC_07_2mbits_half.mp4" width="2048" height="1024" preload="auto" ></video>
+		  
+		   
+		   <video id = "Airport_01_2mbits" crossOrigin = "anonymous" src="Video/LondonCityAirport/Airport_01_2mbits_half.mp4" width="2048" height="1024"  preload="auto" ></video>
+		   <video id = "Airport_02_2mbits" crossOrigin = "anonymous" src="Video/LondonCityAirport/Airport_02_2mbits_half.mp4" width="2048" height="1024"  preload="auto" ></video>
+		   <video id = "Airport_03_2mbits" crossOrigin = "anonymous" src="Video/LondonCityAirport/Airport_03_2mbits_half.mp4" width="2048" height="1024"  preload="auto" ></video>
+		   <video id = "Airport_04_2mbits" crossOrigin = "anonymous" src="Video/LondonCityAirport/Airport_04_2mbits_half.mp4" width="2048" height="1024"  preload="auto" ></video>
+		   <video id = "Airport_05_2mbits" crossOrigin = "anonymous" src="Video/LondonCityAirport/Airport_05_2mbits_half.mp4" width="2048" height="1024"  preload="auto" ></video>
+		   
+		   <video id = "Tideway_01_2mbits" crossOrigin = "anonymous" src="Video/ThamesTideway/Tideway_01_2mbits_half.mp4" width="2048" height="1024"  preload="auto" ></video>
+		   <video id = "Tideway_02_2mbits" crossOrigin = "anonymous" src="Video/ThamesTideway/Tideway_02_2mbits_half.mp4" width="2048" height="1024"  preload="auto" ></video>
+		   <video id = "Tideway_03_2mbits" crossOrigin = "anonymous" src="Video/ThamesTideway/Tideway_03_2mbits_half.mp4" width="2048" height="1024"  preload="auto" ></video>
+		 
+			
+		   <img id="Airport_04_130446" src="360Stills/Airport_04_130446.jpg">
+		   <img id="Boston_03_155408" src="360Stills/Boston_03_155408.jpg">
+		   <img id="HPC_07_135636" src="360Stills/HPC_07_135636.jpg">
+		   <img id="Tideway_01_182549" src="360Stills/Tideway_01_182549.jpg">	
+	  
+	  
+	  
+	  
         <a-asset-item id="messageText" src="message.html"></a-asset-item>
         
 		<a-mixin
@@ -38,7 +88,7 @@
 		 
 		 <a-mixin
 		 id="pin"
-		 material="color: white; opacity: 0.99; src: UI/KeyFacts/pin.png"
+		 material="color: white; opacity: 0.99; src: #pinIMG"
 		 text ="letterSpacing: -1.15;baseline: top; wrapCount: 45; shader: msdf; anchor: left; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; width: 1.2; value: this is some copy this is some copy; xOffset: 0.1"
 		 geometry = "primitive: plane; width: 0.1; height: 0.15"
 		 ></a-mixin>
@@ -97,7 +147,7 @@
 	  <!-- Video menu -->
 		<a-entity 
 		id="PlayerMenu"
-		position="0 1.6 0"
+		position="0 1.3 0"
 		>
 		
 		<a-entity
@@ -114,7 +164,7 @@
 		<
 		id="PlayerMenuReturnToMainMenu"
 		geometry="primitive: plane; width: 0.6; height: 0.125"
-		material="color:#90b069; shader: flat; src: UI/playeMenuButton.png;  blending: additive; alphaTest: 0.6"
+		material="color:#90b069; shader: flat; src: #playeMenuButtonIMG;  blending: additive; alphaTest: 0.6"
 		position="-0.35 -0.4 -1.1"
 		animation__scale="property: scale; to: 1.2 1.2 1.2; dur: 200; startEvents: mouseenter"
         animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave"
@@ -130,7 +180,7 @@
 		
 		id="PlayerMenuNextVideo"
 		geometry="primitive: plane; width: 0.6; height: 0.125"
-		material="color: #90b069; shader: flat; src: UI/playeMenuButton.png; blending: additive; alphaTest: 0.6"
+		material="color: #90b069; shader: flat; src: #playeMenuButtonIMG; blending: additive; alphaTest: 0.6"
 		position="0.35 -0.4 -1.1"
 		animation__scale="property: scale; to: 1.2 1.2 1.2; dur: 200; startEvents: mouseenter"
         animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave"
@@ -197,7 +247,7 @@
 		
 		<a-entity id="SubtitlesOnOffBtn" class = "raycastable"
 		geometry="primitive: plane; width: 1.1; height: 0.25"
-		material="color: #90b069; shader: flat; src: UI/playeMenuButton.png; blending: additive; alphaTest: 0.6"
+		material="color: #90b069; shader: flat; src: #playeMenuButtonIMG; blending: additive; alphaTest: 0.6"
 		position = "-0.2 -0.5 0"
 		text = "value: Subtitles: On; color: white; align: center; width: 2;"
 		animation__scale="property: scale; to: 1.2 1.2 1.2; dur: 200; startEvents: mouseenter"
@@ -214,7 +264,7 @@
           visible="true"
           scale="1 1 1"
           geometry="primitive: plane; width: 4.36; height: 1.8"
-          material="color: white; shader: flat; transparent: false;">
+          material="color: white; shader: flat; transparent: false; src: #PanelBackgroundIMG">
 		  	<a-entity  position="0 0.5 0" text="shader: msdf; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; value: Welcome to BAM Nuttall; color: white; align: center; width: 3"></a-entity>
 			<a-entity position="0 0 0" text="shader: msdf; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; value: To navigate through the menus, click or direct your gaze towards a button or icon to launch; color: white; align: center; width: 2.3"></a-entity>
 			<a-entity position="0 -0.7 0" text="shader: msdf; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; value: Select one of the projects below to begin; color: white; align: center; width: 2.3"></a-entity>
@@ -230,7 +280,7 @@
           visible="true"
           scale="1 1 1"
           geometry="primitive: plane; width: 4.36; height: 1.8"
-          material="color: white; shader: flat; transparent: false">
+          material="color: white; shader: flat; transparent: false; src: #PanelBackgroundIMG">
 		  
 			
 		  
@@ -246,7 +296,7 @@
 		   <a-entity id="play360Button"
 			geometry="primitive: circle; radius: 0.25"
 			
-			material="color: white; opacity: 0.99; shader: flat"
+			material="color: white; opacity: 0.99; shader: flat; src: #PlayButtonBackgroundIMG"
 			
 			position="2 -0.746 0.1"
 			animation__scale="property: scale; to: 1.2 1.2 1.2; dur: 200; startEvents: mouseenter"
@@ -270,7 +320,7 @@
 			id="keyFactCrane"
 			mixin ="pin"
 		
-			material="src: UI/KeyFacts/crane.png"> 
+			material="src: #craneIMG"> 
 			
 			</a-entity>
 			
@@ -278,7 +328,7 @@
 			id="keyFactStopWatch"
 			mixin = "pin"
 			
-			material="src: UI/KeyFacts/stopwatch.png"> 
+			material="src: #stopwatchIMG"> 
 			
 			</a-entity>
 			
@@ -286,7 +336,7 @@
 			id="keyFactPinMoney"
 			mixin ="pin"
 			
-			material="src: UI/KeyFacts/pounds.png"> 
+			material="src: #poundsIMG"> 
 			
 			</a-entity>
 			
@@ -297,7 +347,7 @@
 			<a-entity id= "bamlogo"
 			position = "-1.6 1.2 0.1"
 			geometry="primitive: plane; width: 1; height: 0.4"
-			material = "color: white; shader: flat; src: UI/BamNuttallLogoWhite.png; opacity: 0.99" 
+			material = "color: white; shader: flat; src: #BamNuttallLogoWhiteIMG; opacity: 0.99" 
 			> </a-entity>
 			
 			
@@ -351,46 +401,7 @@
 
 	  
 	  
-	   <a-assets>
-	    <!--    <video id = "output" crossOrigin = "anonymous" src="Video/BostonBarrier/half2.mp4" width="2048" height="1024" ></video> -->
-		   <video id = "Boston_01_2mbits" crossOrigin = "anonymous" src="Video/BostonBarrier/Boston_01_2mbits_half.mp4" width="2048" height="1024" ></video>
-		   <video id = "Boston_02_2mbits" crossOrigin = "anonymous" src="Video/BostonBarrier/Boston_02_2mbits_half.mp4" width="2048" height="1024" ></video>
-		   <video id = "Boston_03_2mbits" crossOrigin = "anonymous" src="Video/BostonBarrier/Boston_03_2mbits_half.mp4" width="2048" height="1024" ></video>
-				
-		   <video id = "HPC_01_2mbits" crossOrigin = "anonymous" src="Video/HinkleyPointC/HPC_01_2mbits_half.mp4" width="2048" height="1024" ></video>
-		   <video id = "HPC_02_2mbits" crossOrigin = "anonymous" src="Video/HinkleyPointC/HPC_02_2mbits_half.mp4" width="2048" height="1024" ></video>
-		   <video id = "HPC_03_2mbits" crossOrigin = "anonymous" src="Video/HinkleyPointC/HPC_03_2mbits_half.mp4" width="2048" height="1024" ></video>
-		   <video id = "HPC_04_2mbits" crossOrigin = "anonymous" src="Video/HinkleyPointC/HPC_04_2mbits_half.mp4" width="2048" height="1024" ></video>
-		   <video id = "HPC_05_2mbits" crossOrigin = "anonymous" src="Video/HinkleyPointC/HPC_05_2mbits_half.mp4" width="2048" height="1024" ></video>
-		   <video id = "HPC_06_2mbits" crossOrigin = "anonymous" src="Video/HinkleyPointC/HPC_06_2mbits_half.mp4" width="2048" height="1024" ></video>
-		   <video id = "HPC_07_2mbits" crossOrigin = "anonymous" src="Video/HinkleyPointC/HPC_07_2mbits_half.mp4" width="2048" height="1024" ></video>
-		  
-		   
-		   <video id = "Airport_01_2mbits" crossOrigin = "anonymous" src="Video/LondonCityAirport/Airport_01_2mbits_half.mp4" width="2048" height="1024" ></video>
-		   <video id = "Airport_02_2mbits" crossOrigin = "anonymous" src="Video/LondonCityAirport/Airport_02_2mbits_half.mp4" width="2048" height="1024" ></video>
-		   <video id = "Airport_03_2mbits" crossOrigin = "anonymous" src="Video/LondonCityAirport/Airport_03_2mbits_half.mp4" width="2048" height="1024" ></video>
-		   <video id = "Airport_04_2mbits" crossOrigin = "anonymous" src="Video/LondonCityAirport/Airport_04_2mbits_half.mp4" width="2048" height="1024" ></video>
-		   <video id = "Airport_05_2mbits" crossOrigin = "anonymous" src="Video/LondonCityAirport/Airport_05_2mbits_half.mp4" width="2048" height="1024" ></video>
-		   
-		   <video id = "Tideway_01_2mbits" crossOrigin = "anonymous" src="Video/ThamesTideway/Tideway_01_2mbits_half.mp4" width="2048" height="1024" ></video>
-		   <video id = "Tideway_02_2mbits" crossOrigin = "anonymous" src="Video/ThamesTideway/Tideway_02_2mbits_half.mp4" width="2048" height="1024" ></video>
-		   <video id = "Tideway_03_2mbits" crossOrigin = "anonymous" src="Video/ThamesTideway/Tideway_03_2mbits_half.mp4" width="2048" height="1024" ></video>
-		 
-			
-		   <img id="Airport_04_130446" src="360Stills/Airport_04_130446.jpg">
-		   <img id="Boston_03_155408" src="360Stills/Boston_03_155408.jpg">
-		   <img id="HPC_07_135636" src="360Stills/HPC_07_135636.jpg">
-		   <img id="Tideway_01_182549" src="360Stills/Tideway_01_182549.jpg">			
-	   
-	   
-	   
-	   <!-- 360 player sphere 
-        <video id="videoAsset" preload="false"
-               loop="false"
-               crossOrigin="anonymous" ></video>
-			   
-			   -->
-      </a-assets>
+	
 		
 		
     </a-scene>
