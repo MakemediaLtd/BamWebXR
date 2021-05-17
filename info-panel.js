@@ -640,10 +640,12 @@ AFRAME.registerComponent('info-panel', {
 	  
 	  if(this.currentSectionVideoIndex < this.currentSection.vidSrc.length - 1)
 	  {
-		  this.currentSectionVideoIndex ++;
+		  //this.currentSectionVideoIndex ++;
 		  
 		  
-		 this.playCurrentVideo();
+		// this.playCurrentVideo();
+		this.playNextVideo();
+		
 		  
 	  }
 	  else
@@ -678,29 +680,28 @@ AFRAME.registerComponent('info-panel', {
 	   var id = this.currentSection.vidSrc[this.currentSectionVideoIndex];
 	
 	 
+
+		
+	
+	this._360VideoPlayer.object3D.visible = false;
+	 
 		this._360VideoPlayer.setAttribute('material','src', "#"+id);
 	 
 		var video = document.querySelector("#"+id);
-			
+		
+		
+		
+		window.stop();
+		
 		video.currentTime = 0;
+		//video.load();
 		video.play();
-			
+		//video.muted = false;
+		
 		this.CurrentVideoPlaying = video;
 		
-	
-		// subtitles 
-		
-	//	var subtitlesBlock = this.Subtitles[this.CurrentVideoPlaying.id];
-		
-	//	console.log(subtitlesBlock.length);
-		
-			//for (var i = 0; i < subtitlesBlock.length; ++i) {
-				
-		//	console.log(subtitlesBlock[i]);
-				
-			//	setTimeout(this.setSubtitles, subtitlesBlock[i][0] * 1000, subtitlesBlock[i][1]);
-				
-		//}
+		this._360VideoPlayer.object3D.visible = true;
+
 	
   },
 			
@@ -741,6 +742,13 @@ AFRAME.registerComponent('info-panel', {
 		  return;
 	  }
 	  
+	  
+	  if(this.CurrentVideoPlaying.currentTime < 3)
+	  {
+		  console.log("Can't skip yet");
+		  return;
+	  }
+	  
 	  console.log("Play next video");
 	  
 	  this.SubtitlesText.setAttribute('text', 'value', ' ');
@@ -758,6 +766,10 @@ AFRAME.registerComponent('info-panel', {
   {
 	  console.log("Stop current video");
 	  
+	  //this.CurrentVideoPlaying.setAttribute('src', '');
+	  
+	 // this.CurrentVideoPlaying.load();
+	  
 	  // var id = this.currentSection.vidSrc[this.currentSectionVideoIndex];
 	
 	 
@@ -767,14 +779,36 @@ AFRAME.registerComponent('info-panel', {
 			
 	//		video.pause();
 	
+	
+	 
+	
+	
 	this.CurrentVideoPlaying.pause();
+	
+	
+	if(this.CurrentVideoPlaying !== null && typeof this.CurrentVideoPlaying !== 'undefined')
+	{
+	//	var oldVideSRC = this.CurrentVideoPlaying.getAttribute('src');
+		
+	//	console.log(oldVideSRC);
+		
+	//	this.CurrentVideoPlaying.setAttribute('src', '');
+	//	this.CurrentVideoPlaying.load();
+		//this.CurrentVideoPlaying.src =  oldVideSRC; //.split; // + '?dummy=' + Date.now();
+	//	this.CurrentVideoPlaying.load();
+	
+		
+	
+	}
+	
+	
 		  
   },
   
   
   GoBackToMainMenu: function()
   {
-	  
+	  window.stop();
 	  this.playerMenu.setAttribute('visible', false);
 	  this.playerMenuNextVideo.setAttribute('visible', true); // add this back in 
 	  
@@ -877,7 +911,7 @@ AFRAME.registerComponent('info-panel', {
 				
 				
 				    this.SubtitlesText.setAttribute('text', 'value', SubtitlesBlock[i][1]);
-					console.log(SubtitlesBlock[i][1]);
+					//console.log(SubtitlesBlock[i][1]);
 				
 				
 					if(this.ShowSubtitles)
@@ -890,6 +924,7 @@ AFRAME.registerComponent('info-panel', {
 			
 		}
 		
+				
 		
 		
 	}
