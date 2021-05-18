@@ -49,13 +49,14 @@ AFRAME.registerComponent('info-panel', {
 			description: 'BAM Nuttall and BAM International have jointly been awarded a contract for £85m to construct a 75,000m² concrete deck extension providing a new taxiway and additional aircraft parking.  The project is part of a £480m development programme for the airport and involves over 1000 steel cased concrete piles, installation of over 6000 precast sections and pouring over 43,500m³ of concrete.',
 			vidSrc: 
 			[
-				'Airport_01_2mbits',
-				'Airport_02_2mbits',
-				'Airport_03_2mbits',
-				'Airport_04_2mbits',
-				'Airport_05_2mbits'
+				'Airport_01_1mbits_half',
+				'Airport_02_1mbits_half',
+				'Airport_03_1mbits_half',
+				'Airport_04_1mbits_half',
+				'Airport_05_1mbits_half'
 				
 			],
+			vidSrcPath: 'Video/LondonCityAirport/',
 			bannerImg: '#London-City-Airport-2IMG',
 			_360Img: 'Airport_04_130446',
 			imgEl: document.querySelector('#MovieImage'),
@@ -73,10 +74,11 @@ AFRAME.registerComponent('info-panel', {
 			description: 'BMB, a Joint Venture between BAM Nuttall, Morgan Sindall and Balfour Beatty was awarded the £416m contract to construct the 6km west section of the Thames Tideway Tunnel.  The Tunnel’s purpose is to prevent pollution from the city’s sewerage network being discharged directly into the Thames estimated in tens of millions of tonnes per year.  The overall cost of the Tideway project is £4.9bn.',
 			vidSrc: 
 			[
-				'Tideway_01_2mbits',
-				'Tideway_02_2mbits',
-				'Tideway_03_2mbits'
+				'Tideway_01_1mbits_half',
+				'Tideway_02_1mbits_half',
+				'Tideway_03_1mbits_half'
 			],
+			vidSrcPath: 'Video/ThamesTideway/',
 			bannerImg: '#TTWIMG',
 			_360Img: 'Tideway_01_182549',
 			imgEl: document.querySelector('#MovieImage'),
@@ -95,14 +97,15 @@ AFRAME.registerComponent('info-panel', {
 			description: 'The first new nuclear power station to be built in the UK in over 20 years; Hinkley Point C will provide low-carbon electricity for around 6 million homes, create thousands of jobs and bring lasting benefits to the UK economy. On a site that is the size of 245 football pitches, the KBJV team are working on site preparation and earthworks stages of the project.',
 			vidSrc: 
 			[
-				'HPC_01_2mbits',
-				'HPC_02_2mbits',
-				'HPC_03_2mbits',
-				'HPC_04_2mbits',
-				'HPC_05_2mbits',
-				'HPC_06_2mbits',
-				'HPC_07_2mbits'
+				'HPC_01_1mbits_half',
+				'HPC_02_1mbits_half',
+				'HPC_03_1mbits_half',
+				'HPC_04_1mbits_half',
+				'HPC_05_1mbits_half',
+				'HPC_06_1mbits_half',
+				'HPC_07_1mbits_half'
 			],
+			vidSrcPath:'Video/HinkleyPointC/',
 			bannerImg: '#hinkley_pointIMG',
 			_360Img: 'HPC_07_135636',
 			imgEl: document.querySelector('#MovieImage'),
@@ -121,12 +124,13 @@ AFRAME.registerComponent('info-panel', {
 			vidSrc: 
 			[
 				//'output',
-				'Boston_01_2mbits',
+				'Boston_01_1mbits_half',
 				//'output',
 				//'output'
-				'Boston_02_2mbits',
-				'Boston_03_2mbits'
+				'Boston_02_1mbits_half',
+				'Boston_03_1mbits_half'
 			],
+			vidSrcPath: 'Video/BostonBarrier/',
 			bannerImg: '#BostonBarrierIMG',
 			_360Img: 'Boston_03_155408',
 			imgEl: document.querySelector('#MovieImage'),
@@ -678,34 +682,81 @@ AFRAME.registerComponent('info-panel', {
 	  }
 	  
 	   var id = this.currentSection.vidSrc[this.currentSectionVideoIndex];
+	   var src = this.currentSection.vidSrcPath + id;
+	   
+	   if(this.IsIOS())
+	   {
+			src = src + ".mp4";
+	   }
+	   else
+	   {
+		   src = src + ".mp4"; // might wanna do webms  for roid
+	   }
+	   
 	
-	 
+		var videoID = '?dummy=' + Date.now();
+		
+	
+		var video = document.createElement("VIDEO");
+		console.log(escape(src + videoID));
+		video.setAttribute('src', (src + videoID));
+		video.id = videoID;
+		video.setAttribute('webkit-playsinline', ' ');
+		video.setAttribute('playsinline', ' ');
+		//video.crossOrigin = 'anonymous';
+		video.crossOrigin = 'anonymous';
+	//	video.setAttribute('autoplay', 'autoplay');
+		video.width = 2048;
+		video.height= 1024; 
+		video.preload = 'auto';
+		video.style.display = 'none';
+		//video.type = 'video/mp4';
+		
+		console.log(video.src);
+	  document.body.appendChild(video);
 
 		
 	
-	this._360VideoPlayer.object3D.visible = false;
+	//this._360VideoPlayer.object3D.visible = false;
 	 
-		this._360VideoPlayer.setAttribute('material','src', "#"+id);
+		this._360VideoPlayer.setAttribute('material','src', '#'+videoID);
 	 
-		var video = document.querySelector("#"+id);
+		// var video = document.querySelector("#"+id);
 		
 		
 		
-		window.stop();
+		//window.stop();
 		
-		video.currentTime = 0;
+		// video.currentTime = 0;
 		//video.load();
-		video.play();
+		  var playPromise = video.play();
+
+  if (playPromise !== undefined) {
+    playPromise.then(_ => {
+      // Automatic playback started!
+	  
+	   
+	  console.log("Playing?");
+
+    })
+    .catch(error => {
+      // Auto-play was prevented
+      
+	  console.log(error);
+	  
+    });
+  }
 		//video.muted = false;
 		
 		this.CurrentVideoPlaying = video;
 		
-		this._360VideoPlayer.object3D.visible = true;
+	//	this._360VideoPlayer.object3D.visible = true;
 
 	
   },
 			
 		  
+  
   
   
   setSubtitles: function(sub)
@@ -784,17 +835,25 @@ AFRAME.registerComponent('info-panel', {
 	
 	
 	this.CurrentVideoPlaying.pause();
-	
-	
+//	this.CurrentVideoPlaying.src = "";
+//	this.CurrentVideoPlaying.load();
+//	
 	if(this.CurrentVideoPlaying !== null && typeof this.CurrentVideoPlaying !== 'undefined')
 	{
-	//	var oldVideSRC = this.CurrentVideoPlaying.getAttribute('src');
+		
+		this.CurrentVideoPlaying.parentElement.removeChild(this.CurrentVideoPlaying);
+		
+		
+		
+		//var oldVideSRC = this.CurrentVideoPlaying.getAttribute('src');
 		
 	//	console.log(oldVideSRC);
 		
-	//	this.CurrentVideoPlaying.setAttribute('src', '');
-	//	this.CurrentVideoPlaying.load();
-		//this.CurrentVideoPlaying.src =  oldVideSRC; //.split; // + '?dummy=' + Date.now();
+		this.CurrentVideoPlaying.setAttribute('src', '');
+	this.CurrentVideoPlaying.load();
+
+	////=	this.CurrentVideoPlaying.src =  oldVideSRC; //.split; // + '?dummy=' + Date.now();
+		//	this.CurrentVideoPlaying.currentTime = 0;
 	//	this.CurrentVideoPlaying.load();
 	
 		
@@ -808,7 +867,7 @@ AFRAME.registerComponent('info-panel', {
   
   GoBackToMainMenu: function()
   {
-	  window.stop();
+	//  window.stop();
 	  this.playerMenu.setAttribute('visible', false);
 	  this.playerMenuNextVideo.setAttribute('visible', true); // add this back in 
 	  
@@ -959,6 +1018,27 @@ AFRAME.registerComponent('info-panel', {
 	
   },
   
+  IsIOS: function()
+  {
+		
+		
+	var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+		
+		 // iOS detection from: http://stackoverflow.com/a/9039885/177710
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        
+		console.log("ios");
+		return true;
+    }
+	else
+	{
+		return false;
+	}
+	
+	
+	
+  },
   
   ease: function () { 
   
