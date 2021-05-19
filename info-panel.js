@@ -155,7 +155,7 @@ AFRAME.registerComponent('info-panel', {
 	this.SubtitleIndex = 0;
 	
 	this.Subtitles = {
-				Airport_01_2mbits:
+				Airport_01_1mbits_half:
 				[				
 									
 					[5.0, 'Ahead and looking east you can see the original dock basin.'],
@@ -169,7 +169,7 @@ AFRAME.registerComponent('info-panel', {
 					[49.8, 'Looking left you can see a plane taking off showing just how close we are working to the runway.'],
 					[55, ' ']
 				],
-				Airport_02_2mbits:
+				Airport_02_1mbits_half:
 				[				
 								 	
 					[13.8, 'You are now standing on precast concrete slabs which form the suspended deck.'],
@@ -183,7 +183,7 @@ AFRAME.registerComponent('info-panel', {
 					[77, ' ']
 					
 				],
-				Airport_03_2mbits:
+				Airport_03_1mbits_half:
 				[				
 									
 					[3.5, 'You are standing on an area of suspended concrete deck, constructed by us.'],
@@ -198,7 +198,7 @@ AFRAME.registerComponent('info-panel', {
 					[55, ' ']
 					
 				],
-				Airport_04_2mbits:
+				Airport_04_1mbits_half:
 				[
 				
 					[14.8, 'Looking straight ahead, is an area of the taxiway which has been concreted.'],
@@ -213,7 +213,7 @@ AFRAME.registerComponent('info-panel', {
 					[62, ' ']
 				
 				],
-				Airport_05_2mbits:
+				Airport_05_1mbits_half:
 				[
 				
 					[3.3, 'Adjacent to the existing terminal building we are concreting a smaller section of the deck.'],
@@ -225,7 +225,7 @@ AFRAME.registerComponent('info-panel', {
 					[42, '']
 				
 				],
-				Boston_01_2mbits:
+				Boston_01_1mbits_half:
 				[
 					[3.0, 'Below is the new Boston Barrier. The flood gate is installed and is locked in a maintenance position.'],
 					[10, 'Looking left we have an excavator on a barge dredging the river in preparation for scour protection'],
@@ -235,7 +235,7 @@ AFRAME.registerComponent('info-panel', {
 				
 					
 				],
-				Boston_02_2mbits:
+				Boston_02_1mbits_half:
 				[
 					[1, 'Between you and the river is one of the two twin wall cofferdams.'],
 					[6.5, 'The two rows of steel sheet piles with earth infill enable the whole barrier installation and'],
@@ -246,7 +246,7 @@ AFRAME.registerComponent('info-panel', {
 					[31, 'The river will then permanently flow through the new concrete channel.'],
 					[38, ' ']	
 				],
-				Boston_03_2mbits:
+				Boston_03_1mbits_half:
 				[
 					[6.8, 'We are down in the new river channel, ahead of us is the cofferdam'],
 					[11, 'holding back both the river and tidal range of the sea.'],
@@ -260,7 +260,7 @@ AFRAME.registerComponent('info-panel', {
 					[52.3, 'and protect 100’s of homes and businesses in and around Boston.'],
 					[58, ' ']	
 				],
-				HPC_01_2mbits:
+				HPC_01_1mbits_half:
 				[
 					[3, 'This is a bird’s eye view of Hinkley Point C construction site.'],
 					[8, 'This view is captured from the top of a crane jib allowing you to see the expanse of the work.'],
@@ -273,7 +273,7 @@ AFRAME.registerComponent('info-panel', {
 					[59, ' ']
 						
 				],
-				HPC_02_2mbits:
+				HPC_02_1mbits_half:
 				[
 					[4.3, 'In front we can see is a lifting team carrying out a routine lift'],
 					[8.3, 'using one of the many tower cranes on site, look up and you will see which one.'],
@@ -289,7 +289,7 @@ AFRAME.registerComponent('info-panel', {
 					[75, ' ']
 						
 				],
-				HPC_03_2mbits:
+				HPC_03_1mbits_half:
 				[
 					[3.5, 'Another view of Big Carl straight ahead.'],
 					[7, ' '],
@@ -299,7 +299,7 @@ AFRAME.registerComponent('info-panel', {
 					
 						
 				],
-				HPC_04_2mbits:
+				HPC_04_1mbits_half:
 				[
 					[2, 'Here you can see an area of excavation we have completed.'],
 					[8.7, 'The whole site comprises of different shaped and profiled excavations like this.'],
@@ -310,7 +310,7 @@ AFRAME.registerComponent('info-panel', {
 					
 						
 				],
-				HPC_05_2mbits:
+				HPC_05_1mbits_half:
 				[
 					[3.8, 'Most of the excavation is in rock which must be broken out using hydraulic breakers.'],
 					[10.5, ' '],
@@ -318,7 +318,7 @@ AFRAME.registerComponent('info-panel', {
 					[19.5, ' ']
 				
 				],
-				HPC_06_2mbits:
+				HPC_06_1mbits_half:
 				[
 					[2.5, 'Each excavation is treated with sprayed concrete to stabilise and make safe for the work which follows.'],
 					[11.5, 'We dig down approximately 2m and then stabilise before further excavation proceeds.'],
@@ -326,7 +326,7 @@ AFRAME.registerComponent('info-panel', {
 					[22.5, 'All concrete is batched on site to minimise traffic in the local area.'],
 					[29, ' ']			
 				],
-				HPC_07_2mbits:
+				HPC_07_1mbits_half:
 				[
 					[3.5, 'Look ahead you can see the red jib of a concrete pump,'],
 					[7, 'pumping concrete into the excavation to form one of the nuclear new build structures.'],
@@ -335,7 +335,7 @@ AFRAME.registerComponent('info-panel', {
 					[24.5, 'Concrete is batched and then transported in truck just the same as if brought in by road.'],
 					[32, ' ']							
 				],
-				Tideway_01_2mbits:
+				Tideway_01_1mbits_half:
 				[
 					[1, 'This is one of the access shafts on the Thames Tideway super sewer construction.'],
 					[7, 'We are building a tunnel similar to those used for the London Underground,'],
@@ -348,7 +348,7 @@ AFRAME.registerComponent('info-panel', {
 					[38.5, ' ']
 				
 				],
-				Tideway_02_2mbits:
+				Tideway_02_1mbits_half:
 				[
 					[1.5, 'Looking right, towards the TBM or Tunnel Boring Machine'],
 					[5, 'you can see the train returning from its delivery to the TBM.'],
@@ -358,7 +358,7 @@ AFRAME.registerComponent('info-panel', {
 					[28, ' ']
 				
 				],
-				Tideway_03_2mbits:
+				Tideway_03_1mbits_half:
 				[
 					[10, 'You are now inside the TBM, with the boring head behind you.'],
 					[14, ' '],
@@ -499,6 +499,8 @@ AFRAME.registerComponent('info-panel', {
 	
 	this._360VideoPlayer.setAttribute('material', 'src', "#"+movieInfo._360Img);
 	
+	
+	this.CurrentActiveVideoName = "";
 	
   },
 
@@ -683,6 +685,8 @@ AFRAME.registerComponent('info-panel', {
 	  
 	   var id = this.currentSection.vidSrc[this.currentSectionVideoIndex];
 	   var src = this.currentSection.vidSrcPath + id;
+	   
+	   this.CurrentActiveVideoName = id;
 	   
 	   if(this.IsIOS())
 	   {
@@ -956,7 +960,7 @@ AFRAME.registerComponent('info-panel', {
 	{
 		//console.log("Is playing...!");
 		
-		var SubtitlesBlock = this.Subtitles[this.CurrentVideoPlaying.id];
+		var SubtitlesBlock = this.Subtitles[this.CurrentActiveVideoName];
 		
 		if(SubtitlesBlock === null || typeof SubtitlesBlock === 'undefined')
 			return;
