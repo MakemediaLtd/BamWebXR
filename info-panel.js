@@ -445,7 +445,18 @@ AFRAME.registerComponent('info-panel', {
 		
 		console.log("is moblie");
 		
+		if(this.IsIOS())
+			
+		{
+		
+			this.scene.setAttribute('vr-mode-ui', 'enabled', 'false');
+			
+		}
+		
 	}
+	
+	
+	//	document.querySelector('.a-enter-vr-button').style.visible = 'none';
 	
 	
 	
