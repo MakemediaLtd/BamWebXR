@@ -67,7 +67,6 @@ AFRAME.registerComponent('info-panel', {
 				'Work started in Jan 2018 and planned completion is May 2020',
 				'Original award was £85m split 70% BAM Nuttall and 30% BAM International'
 			]
-			
 		},
 		TidwayBTN:{
 			title:'Thames Tideway West',
@@ -407,6 +406,9 @@ AFRAME.registerComponent('info-panel', {
 	this._360VideoPlayer.addEventListener('materialvideoended', this.on360VideoEnded);
 	
 	this._360VideoPlayer.object3D.visible = true;
+	
+	//this._360VideoPlayer.object3D.rotation.set(0, -90, 0);
+	
 	this._360VideoPlayer.setAttribute('material', 'src', "#"+this.bamXrInfo['LondonCityAirportBTN']._360Img);
 	
 	this.playerMenuReturnToMainMenu.addEventListener('click', this.GoBackToMainMenu);
@@ -735,6 +737,10 @@ AFRAME.registerComponent('info-panel', {
 	//this._360VideoPlayer.object3D.visible = false;
 	 
 		this._360VideoPlayer.setAttribute('material','src', '#'+videoID);
+		
+		var camRotY = this.Cam.object3D.rotation.y;
+	this._360VideoPlayer.object3D.rotation.set(0, THREE.MathUtils.degToRad(THREE.MathUtils.radToDeg(camRotY) - 90), 0);
+	
 	 
 		// var video = document.querySelector("#"+id);
 		
@@ -882,6 +888,8 @@ AFRAME.registerComponent('info-panel', {
   
   GoBackToMainMenu: function()
   {
+	  
+	  console.log("this fired?!");
 	//  window.stop();
 	  this.playerMenu.setAttribute('visible', false);
 	  this.playerMenuNextVideo.setAttribute('visible', true); // add this back in 
@@ -921,7 +929,7 @@ AFRAME.registerComponent('info-panel', {
 				); 
 	  
 	  
-		//console.log(camRotY);
+		
 	 
 		this.SubtitlesText.setAttribute('text', 'value', ' ');
 	  
@@ -932,6 +940,11 @@ AFRAME.registerComponent('info-panel', {
 					camRotY,
 					0,
 				);
+			
+	
+		//console.log(camRotY);
+	
+	   this._360VideoPlayer.object3D.rotation.set(0, THREE.MathUtils.degToRad(THREE.MathUtils.radToDeg(camRotY) - 90), 0);
 	
 	
 	  
