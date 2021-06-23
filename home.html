@@ -6,8 +6,9 @@
     <meta name="description" content="BAM: WebXR">
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-environment-component@1.2.0/dist/aframe-environment-component.min.js"></script>
- 
+ <script src="look-controls-custom.js"></script>
     <script src="info-panel.js"></script>
+
 	<script src="https://unpkg.com/aframe-layout-component@4.3.1/dist/aframe-layout-component.min.js"></script> 
 
   </head>
@@ -102,7 +103,7 @@
 	 <a-entity
         position="0 1.6 0"
 		id = "cam"
-        camera look-controls="magicWindowTrackingEnabled: false; touchEnabled: true; mouseEnabled: true;"
+        camera look-controls-custom="magicWindowTrackingEnabled: false; touchEnabled: true; mouseEnabled: true;"
 		>
 		<a-entity
 		 id = "cursor_mouse"
